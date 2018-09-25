@@ -3,7 +3,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<title>Login Page</title>
+<title>Registration Page</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="./style.css">
 	
@@ -23,10 +23,10 @@
 	
 		<form action="RegisterServlet" method="post">
 		<fieldset style="margin-left: auto!important; margin-right:auto!important; width: 500px">
-            <legend> Login </legend>
+            <legend class="text-white-50"> Register </legend>
 			<table>
 				<tr>
-						<td>
+						<td class="text-white-50">
 							Username
 						</td>
 						<td>
@@ -34,7 +34,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td class="text-white-50">
 							Password
 						</td>
 						<td>
@@ -42,7 +42,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td class="text-white-50">
 							UTA ID
 						</td>
 						<td>
@@ -50,7 +50,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td class="text-white-50">
 							First Name
 						</td>
 						<td>
@@ -58,7 +58,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td class="text-white-50">
 							Last Name
 						</td>
 						<td>
@@ -66,7 +66,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td class="text-white-50">
 							Role
 						</td>
 						<td>
@@ -79,7 +79,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td class="text-white-50">
 							Date of Birth (mm/dd/yyyy)
 						</td>
 						<td>
@@ -87,7 +87,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td class="text-white-50">
 							Phone Number
 						</td>
 						<td>
@@ -95,7 +95,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td class="text-white-50">
 							Email
 						</td>
 						<td>
@@ -103,7 +103,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td class="text-white-50">
 							Driving License Number
 						</td>
 						<td>
@@ -111,18 +111,15 @@
 						</td>
 					</tr>
 					<tr>
-						<td>
+						<td class="text-white-50">
 							Address
 						</td>
 						<td>
 							<textarea type="text" class="form-control" name="address"></textarea>
 						</td>
-					</tr>
-					<tr>
-						<td><input class="btn" type="submit" value="register" /></td>
-					</tr>
+					</tr>	
 				</table>
-			
+				<input style="margin-left:auto!important; margin-right:auto!important; margin-top:10px;" class="btn" type="submit" value="register" />
 			</fieldset>
 		</form>
 		<form action="index.jsp" method="post">

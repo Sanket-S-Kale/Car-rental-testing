@@ -22,20 +22,18 @@
   		<h2 class="text-white-50" style="">- Go beyond the horizon</h2>
   		<form action="loginServlet" method="post">
         <fieldset style="margin-left: auto!important; margin-right:auto!important; width: 300px">
-            <legend> Login </legend>
+            <legend class="text-white-50"> Login </legend>
             <table>
                 <tr>
-                    <td>User ID</td>
+                    <td class="text-white-50">User ID</td>
                     <td><input type="text" name="username" class="form-control" /></td>
                 </tr>
                 <tr>
-                    <td>Password</td>
+                    <td class="text-white-50">Password</td>
                     <td><input type="password" name="userpass"  class="form-control" /></td>
                 </tr>
-                <tr>
-                    <td><input type="submit" class="btn" value="Login" /></td>
-                </tr>
             </table>
+            <input style="margin-left:auto!important; margin-right:auto!important; margin-top:10px;" type="submit" class="btn" value="Login" />
         </fieldset>
     </form>
     <form action="registration.jsp" method="post">
