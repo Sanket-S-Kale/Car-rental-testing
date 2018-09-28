@@ -6,27 +6,24 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class NameForm {
+import Car_Rental_Util.sqlconnector;
+
+public class LoginDAO {
 	static String temp;
-    public static boolean validate(String name, String pass) {        
+    @SuppressWarnings("null")
+	public static boolean validate(String name, String pass) {        
         boolean status = false;
         Connection conn = null;
         PreparedStatement pst = null, qry = null;
         ResultSet rs = null, qrs = null;
         
 
-        String url = "jdbc:mysql://localhost:3307/";
-        String dbName = "car_rental_testing";
-        String driver = "com.mysql.jdbc.Driver";
-        String userName = "root";
-        String password = "october123";
-        try {
-            Class.forName(driver).newInstance();
-            conn = DriverManager
-                    .getConnection(url + dbName, userName, password);
-
+            try{
+            	
+            	conn=sqlconnector.connect();
+            	
             pst = conn
-                    .prepareStatement("select * from users where user_name=? and usr_password=?");
+                    .prepareStatement("select * from car_rental_testing.users where user_name=? and usr_password=?");
             pst.setString(1, name);
             pst.setString(2, pass);
             
