@@ -11,9 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import FirstProject.model.NameForm;
+import FirstProject.model.LoginDAO;
 
-public class NameController extends HttpServlet{
+public class LoginServlet extends HttpServlet{
 
     private static final long serialVersionUID = 1L;
 
@@ -30,18 +30,18 @@ public class NameController extends HttpServlet{
         if(session!=null)
         session.setAttribute("name", n);
 
-        if(NameForm.validate(n, p)){  
-        	if(NameForm.parameter().equals("Admin"))
+        if(LoginDAO.validate(n, p)){  
+        	if(LoginDAO.parameter().equals("Admin"))
         	{
             RequestDispatcher rd=request.getRequestDispatcher("adminhome.jsp");  
             rd.forward(request,response);  
         	}
-        	else if(NameForm.parameter().equals("Rental Manager"))
+        	else if(LoginDAO.parameter().equals("Rental Manager"))
         	{
             RequestDispatcher rd=request.getRequestDispatcher("rentalmanagerhome.jsp");  
             rd.forward(request,response);  
         	}
-        	else if(NameForm.parameter().equals("User"))
+        	else if(LoginDAO.parameter().equals("User"))
         	{
             RequestDispatcher rd=request.getRequestDispatcher("userhome.jsp");  
             rd.forward(request,response);  

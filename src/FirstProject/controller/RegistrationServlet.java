@@ -15,8 +15,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Car_Rental_Util.sqlconnector;
+import Car_Rental_Util.sqlconnector;
 
-public class RegistrationController extends HttpServlet {
+public class RegistrationServlet extends HttpServlet {
 	 private static final long serialVersionUID = 1L;
 	 
  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -50,15 +52,7 @@ public class RegistrationController extends HttpServlet {
    //create table student(name varchar(100), userName varchar(100), pass varchar(100), addr varchar(100), age int, qual varchar(100), percent varchar(100), year varchar(100));
    try {
 	   
-       String url = "jdbc:mysql://localhost:3307/";
-       String dbName = "car_rental_testing";
-       String driver = "com.mysql.jdbc.Driver";
-       String userName_1 = "root";
-       String password_1 = "october123";
-      
-           Class.forName(driver).newInstance();
-           conn = DriverManager
-                   .getConnection(url + dbName, userName_1, password_1);
+	   	   conn=sqlconnector.connect();
 
            pst = conn.prepareStatement("select role_id from roles where role_name = ?");
            pst.setString(1, role);
