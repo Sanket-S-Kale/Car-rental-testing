@@ -20,7 +20,7 @@ public class sqlconnector {
 	      String dbName = "car_rental_testing";
 	      String driver = "com.mysql.jdbc.Driver";
 	      String userName_1 = "root";
-	      String password_1 = "October#123";
+	      String password_1 = "root";
 	      Class.forName(driver).newInstance();
 	      conn = DriverManager
 	                   .getConnection(url + dbName, userName_1, password_1);
