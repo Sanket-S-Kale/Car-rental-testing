@@ -39,7 +39,7 @@
               <a class="nav-link js-scroll-trigger">Update Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger">Add Car</a>
+              <a class="nav-link js-scroll-trigger" href="addcar.jsp">Add Car</a>
             </li>
           </ul>
         </div>

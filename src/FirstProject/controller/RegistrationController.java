@@ -50,7 +50,7 @@ public class RegistrationController extends HttpServlet {
    //create table student(name varchar(100), userName varchar(100), pass varchar(100), addr varchar(100), age int, qual varchar(100), percent varchar(100), year varchar(100));
    try {
 	   
-       String url = "jdbc:mysql://localhost:3307/";
+       String url = "jdbc:mysql://localhost:3306/";
        String dbName = "car_rental_testing";
        String driver = "com.mysql.jdbc.Driver";
        String userName_1 = "root";

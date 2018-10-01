@@ -9,6 +9,14 @@
     <url-pattern>/loginServlet</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>AddcarServlet</servlet-name>
+    <servlet-class>FirstProject.controller.AddcarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddcarServlet</servlet-name>
+    <url-pattern>/AddcarServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>Register</servlet-name>
     <servlet-class>FirstProject.controller.RegistrationServlet</servlet-class>
   </servlet>
