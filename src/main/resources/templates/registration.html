@@ -1,0 +1,167 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<title>Registration Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="./style.css">
+	
+</head>
+<body>
+	<header class="masthead" style="height:100vh; padding:0;">
+  	<div class="container" style="height: 100% !important;
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;">
+  		<div class="text-center" style="margin-left: auto!important; margin-right: auto!important;">
+  		<h1>Go Mav Car Rental</h1>
+  		<h2 class="text-white-50" style="">- Go beyond the horizon</h2>
+	
+		<form action="#" th:action="@{/registration}" th:object="${registrationForm}" method="post">
+		<fieldset style="margin-left: auto!important; margin-right:auto!important; width: 500px">
+            <legend class="text-white-50"> Register </legend>
+			<table>
+				<tr>
+						<td class="text-white-50">
+							Username
+						</td>
+						<td>
+							<input class="form-control" type="text" th:field="*{username}" />
+						</td>
+					</tr>
+					<tr>
+	                	<td colspan="2" style="color:red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</td>
+	                </tr>
+	                <tr>
+	                	<td colspan="2" style="color:red" th:if="${alreadyExist}">Username already exist!</td>
+	                </tr>
+					<tr>
+						<td class="text-white-50">
+							Password
+						</td>
+						<td>
+							<input type="text" th:field="*{password}" class="form-control" id="password">
+						</td>
+					</tr>
+					<tr>
+	                	<td colspan="2" style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">password Error</td>
+	                </tr>
+					<tr>
+						<td class="text-white-50">
+							UTA ID
+						</td>
+						<td>
+							<input type="text" class="form-control" id="utaid" th:field="*{utaid}">
+						</td>
+					</tr>
+					<tr>
+	                	<td colspan="2" style="color:red" th:if="${#fields.hasErrors('utaid')}" th:errors="*{utaid}">utaid Error</td>
+	                </tr>
+					<tr>
+						<td class="text-white-50">
+							First Name
+						</td>
+						<td>
+							<input type="text" class="form-control" id="firstname" th:field="*{firstname}">
+						</td>
+					</tr>
+					<tr>
+	                	<td colspan="2" style="color:red" th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}">firstname Error</td>
+	                </tr>
+					<tr>
+						<td class="text-white-50">
+							Last Name
+						</td>
+						<td>
+							<input type="text" class="form-control" id="lastname" th:field="*{lastname}">
+						</td>
+					</tr>
+					<tr>
+	                	<td colspan="2" style="color:red" th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}">lastname Error</td>
+	                </tr>
+					<tr>
+						<td class="text-white-50">
+							Role
+						</td>
+						<td>
+							<select class="form-control" id="role" th:field="*{role}">
+							    <option value="" selected>Select Role</option>
+								<option value="Admin">Admin</option>
+								<option value="Rental Manager">Rental Manager</option>
+								<option value="User">User</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+	                	<td colspan="2" style="color:red" th:if="${#fields.hasErrors('role')}" th:errors="*{role}">role Error</td>
+	                </tr>
+					<tr>
+						<td class="text-white-50">
+							Date of Birth (yyyy-mm-dd)
+						</td>
+						<td>
+							<input class="form-control" type="text" id="dob" th:field="*{dob}">
+						</td>
+					</tr>
+					<tr>
+	                	<td colspan="2" style="color:red" th:if="${#fields.hasErrors('dob')}" th:errors="*{dob}">dob Error</td>
+	                </tr>
+					<tr>
+						<td class="text-white-50">
+							Phone Number
+						</td>
+						<td>
+							<input type="text" class="form-control" id="phonenumber" th:field="*{phonenumber}">
+						</td>
+					</tr>
+					<tr>
+	                	<td colspan="2" style="color:red" th:if="${#fields.hasErrors('phonenumber')}" th:errors="*{phonenumber}">phonenumber Error</td>
+	                </tr>
+					<tr>
+						<td class="text-white-50">
+							Email
+						</td>
+						<td>
+							<input type="text" class="form-control" id="email" th:field="*{email}">
+						</td>
+					</tr>
+					<tr>
+	                	<td colspan="2" style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">email Error</td>
+	                </tr>
+					<tr>
+						<td class="text-white-50">
+							Driving License Number
+						</td>
+						<td>
+							<input type="text" class="form-control" id="dl" th:field="*{dlnumber}">
+						</td>
+					</tr>
+					<tr>
+	                	<td colspan="2" style="color:red" th:if="${#fields.hasErrors('dlnumber')}" th:errors="*{dlnumber}">dl number Error</td>
+	                </tr>
+					<tr>
+						<td class="text-white-50">
+							Address
+						</td>
+						<td>
+							<textarea type="text" class="form-control" id="address" th:field="*{address}"></textarea>
+						</td>
+					</tr>	
+					<tr>
+	                	<td colspan="2" style="color:red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">address Error</td>
+	                </tr>
+				</table>
+				<input style="margin-left:auto!important; margin-right:auto!important; margin-top:10px;" class="btn" type="submit" value="register" />
+			</fieldset>
+		</form>
+		<form action="/" method="get">
+				<button type="submit" class="btn btn-link text-white-50">Click here to Login!!</button>
+		</form>
+	</div>
+	</div>
+	</header>
+</body>
+</html>
