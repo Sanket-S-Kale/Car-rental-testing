@@ -26,6 +26,54 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/LogoutServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>ViewRentalServlet</servlet-name>
+    <servlet-class>FirstProject.controller.ViewRentalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewRentalServlet</servlet-name>
+    <url-pattern>/ViewRentalServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CancelBookingServlet</servlet-name>
+    <servlet-class>FirstProject.controller.CancelBookingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CancelBookingServlet</servlet-name>
+    <url-pattern>/CancelBookingServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SearchAvailableCarsServlet</servlet-name>
+    <servlet-class>FirstProject.controller.SearchAvailableCarsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SearchAvailableCarsServlet</servlet-name>
+    <url-pattern>/SearchAvailableCarsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>EditProfileServlet</servlet-name>
+    <servlet-class>FirstProject.controller.EditProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditProfileServlet</servlet-name>
+    <url-pattern>/EditProfileServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>UpdateProfileServlet</servlet-name>
+    <servlet-class>FirstProject.controller.UpdateProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateProfileServlet</servlet-name>
+    <url-pattern>/UpdateProfileServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>BookCarRentalServlet</servlet-name>
+    <servlet-class>FirstProject.controller.BookCarRentalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookCarRentalServlet</servlet-name>
+    <url-pattern>/BookCarRentalServlet</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>

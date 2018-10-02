@@ -36,7 +36,7 @@
               <a class="nav-link js-scroll-trigger">Delete Rental</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger">Update Profile</a>
+              <a class="nav-link js-scroll-trigger" href="EditProfileServlet">Update Profile</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger">Add Car</a>

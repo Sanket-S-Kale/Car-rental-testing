@@ -24,7 +24,7 @@
               <a class="nav-link js-scroll-trigger">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger">Edit User Profile</a>
+              <a class="nav-link js-scroll-trigger" href="EditProfileServlet">Edit User Profile</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger">Revoke Renter</a>

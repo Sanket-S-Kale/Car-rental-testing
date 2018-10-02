@@ -1,0 +1,70 @@
+package FirstProject.model;
+
+public class AvailableCars {
+	
+	int car_id;
+	String car_name;
+	int capacity;
+	double weekday_rate;
+	double weekend_rate;
+	double weekly_rate;
+	double gps_rate;
+	double onstar_rate;
+	double sirusXM_rate;
+	public int getCar_id() {
+		return car_id;
+	}
+	public void setCar_id(int car_id) {
+		this.car_id = car_id;
+	}
+	public String getCar_name() {
+		return car_name;
+	}
+	public void setCar_name(String car_name) {
+		this.car_name = car_name;
+	}
+	public int getCapacity() {
+		return capacity;
+	}
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
+	public double getWeekday_rate() {
+		return weekday_rate;
+	}
+	public void setWeekday_rate(double weekday_rate) {
+		this.weekday_rate = weekday_rate;
+	}
+	public double getWeekend_rate() {
+		return weekend_rate;
+	}
+	public void setWeekend_rate(double weekend_rate) {
+		this.weekend_rate = weekend_rate;
+	}
+	public double getWeekly_rate() {
+		return weekly_rate;
+	}
+	public void setWeekly_rate(double weekly_rate) {
+		this.weekly_rate = weekly_rate;
+	}
+	public double getGps_rate() {
+		return gps_rate;
+	}
+	public void setGps_rate(double gps_rate) {
+		this.gps_rate = gps_rate;
+	}
+	public double getOnstar_rate() {
+		return onstar_rate;
+	}
+	public void setOnstar_rate(double onstar_rate) {
+		this.onstar_rate = onstar_rate;
+	}
+	public double getSirusXM_rate() {
+		return sirusXM_rate;
+	}
+	public void setSirusXM_rate(double sirusXM_rate) {
+		this.sirusXM_rate = sirusXM_rate;
+	}
+	
+
+}
