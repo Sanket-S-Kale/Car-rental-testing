@@ -11,8 +11,5 @@
 	<classpathentry exported="true" kind="lib" path="C:/apache-tomcat-9.0.0.M11/lib/servlet-api.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/apache-tomcat-9.0.0.M11/lib/tomcat-api.jar"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry exported="true" kind="lib" path="C:/Users/Nandzz/Downloads/javax.servlet.jsp.jstl-api-1.2.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Nandzz/Downloads/taglibs-standard-spec-1.2.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Nandzz/Downloads/taglibs-standard-impl-1.2.5.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

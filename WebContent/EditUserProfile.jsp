@@ -7,10 +7,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="./style.css">
 	
-	<title>User Homepage</title>
+
+	<title>Revoke Renter</title>
 </head>
-<body>
- 	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+<body>	
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="LogoutServlet">Logout</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,19 +21,13 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="userhome.jsp">Home</a>
+              <a class="nav-link js-scroll-trigger">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="CheckReserveRentalServlet">Request Rental</a>
+              <a class="nav-link js-scroll-trigger" href="EditUserProfile.jsp">Edit User Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="ViewRentalServlet">View Rentals</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger">Delete Rental</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="EditProfileServlet">Update Profile</a>
+              <a class="nav-link js-scroll-trigger" href="RevokeRenter.jsp">Revoke Renter</a>
             </li>
           </ul>
         </div>
@@ -49,6 +44,23 @@
   		<div class="text-center" style="margin-left: auto!important; margin-right: auto!important;">
   		<h1>Go Mav Car Rental</h1>
   		<h2 class="text-white-50" style="">- Go beyond the horizon</h2>
+  		<form action="EditUserProfileServlet" method="post">
+		<fieldset style="margin-left: auto!important; margin-right:auto!important; width: 500px">
+            <legend class="text-white-50"> Revoke Renter </legend>
+            <table>
+				<tr>
+						<td class="text-white-50">
+							Username
+						</td>
+						<td>
+							<input type="text" class="form-control" name="username">
+						</td>
+						<td><input type="submit" value="Edit" class="btn"/></td>
+					</tr>
+				</table>
+					
+            </fieldset>
+            </form>
   		</div>
   		</div>
   	</header>

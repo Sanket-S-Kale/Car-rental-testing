@@ -74,6 +74,14 @@
     <servlet-name>BookCarRentalServlet</servlet-name>
     <url-pattern>/BookCarRentalServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>CheckReserveRentalServlet</servlet-name>
+    <servlet-class>FirstProject.controller.CheckReserveRentalServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckReserveRentalServlet</servlet-name>
+    <url-pattern>/CheckReserveRentalServlet</url-pattern>
+  </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>

@@ -24,10 +24,10 @@
               <a class="nav-link js-scroll-trigger">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="EditProfileServlet">Edit User Profile</a>
+              <a class="nav-link js-scroll-trigger" href="EditUserProfile.jsp">Edit User Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger">Revoke Renter</a>
+              <a class="nav-link js-scroll-trigger" href="RevokeRenter.jsp">Revoke Renter</a>
             </li>
           </ul>
         </div>
