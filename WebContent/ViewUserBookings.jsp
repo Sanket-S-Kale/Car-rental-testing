@@ -13,7 +13,8 @@
         Hello,
         <%=session.getAttribute("name")%>  below are bookings done by you :- </h3>
         
-        <table style=" background-color: white" >
+        <table class="table bg-white table-hover table-bordered" >
+        <thead>
  		<tr>
   		<th>Reservation ID</th>
   		<th>Car Name</th>
@@ -24,6 +25,8 @@
   		<th>End Time</th>
   		<th>Action</th>
  		</tr>
+ 		</thead>
+ 		<tbody>
        <c:forEach var="var1" items='${requestScope["queryResults"]}'>
  <tr>  
      <td>   ${var1.reservation_id}</td>
@@ -44,6 +47,7 @@
      </tr> 
        
 </c:forEach>
+</tbody>
       </table>
 </body>
 </html>

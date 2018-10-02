@@ -21,7 +21,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger">Home</a>
+              <a class="nav-link js-scroll-trigger" href="rentalmanagerhome.jsp">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger">Car Calendar</a>
@@ -30,7 +30,7 @@
               <a class="nav-link js-scroll-trigger">Check Car Availability</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger">Search Rental</a>
+              <a class="nav-link js-scroll-trigger" href="SearchRental.jsp">Search Rental</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger">Delete Rental</a>
@@ -39,7 +39,7 @@
               <a class="nav-link js-scroll-trigger" href="EditProfileServlet">Update Profile</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger">Add Car</a>
+              <a class="nav-link js-scroll-trigger" href="addcar.jsp">Add Car</a>
             </li>
           </ul>
         </div>
@@ -55,7 +55,7 @@
     margin-left: auto;">
   		<div class="text-center" style="margin-left: auto!important; margin-right: auto!important;">
   		<h1>Go Mav Car Rental</h1>
-  		<h2 class="text-white-50" style="">- Go beyond the horizon</h2>
+  		<h2 class="text-white-50" style="font-style: italic;">- Go beyond the horizon</h2>
   		</div>
   		</div>
   	</header>

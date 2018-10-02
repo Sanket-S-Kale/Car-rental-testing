@@ -20,20 +20,39 @@
     margin-left: auto;">
   		<div class="text-center" style="margin-left: auto!important; margin-right: auto!important;">
   		<h1>Go Mav Car Rental</h1>
-  		<h2 class="text-white-50" style="">- Go beyond the horizon</h2>
+  		<h2 class="text-white-50" style="font-style: italic;">- Go beyond the horizon</h2>
 	
+<<<<<<< HEAD
+		<form action="CompleteBookingServlet" method="post">
+=======
 		<form action="AddcarServlet" method="post">
+>>>>>>> f8a483af41283f5bcf71b4a93fd5765d5a7f5916
 		<fieldset style="margin-left: auto!important; margin-right:auto!important; width: 500px">
             <legend class="text-white-50"> Book a Car </legend>
 			<table width="600px;">
 			<c:forEach var="var1" items='${requestScope["queryResults"]}'>
 					<th class="text-white-50">Car Details</th>
 					<tr>
+<<<<<<< HEAD
+					    <td class="text-white-50">
+							Car Id
+						</td>
+						<td class="text-white-50">
+							<input type="text" name="car_id" value="${var1.car_id}">
+						</td>
+					</tr>
+					<tr>
+=======
+>>>>>>> f8a483af41283f5bcf71b4a93fd5765d5a7f5916
 						<td class="text-white-50">
 							Car Name
 						</td>
 						<td class="text-white-50">
+<<<<<<< HEAD
+							<input type="text" name="car_name" value="${var1.car_name}">
+=======
 							<p>${var1.car_name}</p>
+>>>>>>> f8a483af41283f5bcf71b4a93fd5765d5a7f5916
 						</td>
 					</tr>
 					<tr>
@@ -41,7 +60,11 @@
 							Capacity
 						</td>
 						<td class="text-white-50">
+<<<<<<< HEAD
+							<input type="text" name="capacity" value="${var1.capacity}">
+=======
 							<p>${var1.capacity}</p>
+>>>>>>> f8a483af41283f5bcf71b4a93fd5765d5a7f5916
 						</td>
 					</tr>
 					<tr>

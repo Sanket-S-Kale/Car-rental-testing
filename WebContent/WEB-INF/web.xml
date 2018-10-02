@@ -82,6 +82,23 @@
     <servlet-name>CheckReserveRentalServlet</servlet-name>
     <url-pattern>/CheckReserveRentalServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>CompleteBookingServlet</servlet-name>
+    <servlet-class>FirstProject.controller.CompleteBookingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CompleteBookingServlet</servlet-name>
+    <url-pattern>/CompleteBookingServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddcarServlet</servlet-name>
+    <servlet-class>FirstProject.controller.AddcarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddcarServlet</servlet-name>
+    <url-pattern>/AddcarServlet</url-pattern>
+  </servlet-mapping>
+  
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>

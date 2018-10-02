@@ -21,7 +21,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger">Home</a>
+              <a class="nav-link js-scroll-trigger" href="adminhome.jsp">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="EditUserProfile.jsp">Edit User Profile</a>
@@ -43,7 +43,7 @@
     margin-left: auto;">
   		<div class="text-center" style="margin-left: auto!important; margin-right: auto!important;">
   		<h1>Go Mav Car Rental</h1>
-  		<h2 class="text-white-50" style="">- Go beyond the horizon</h2>
+  		<h2 class="text-white-50" style="font-style: italic;">- Go beyond the horizon</h2>
   		</div>
   		</div>
   	</header>
