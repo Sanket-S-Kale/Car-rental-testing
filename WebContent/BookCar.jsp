@@ -20,7 +20,7 @@
     margin-left: auto;">
   		<div class="text-center" style="margin-left: auto!important; margin-right: auto!important;">
   		<h1>Go Mav Car Rental</h1>
-  		<h2 class="text-white-50" style="">- Go beyond the horizon</h2>
+  		<h2 class="text-white-50" style="font-style: italic;">- Go beyond the horizon</h2>
 	
 <<<<<<< HEAD
 		<form action="CompleteBookingServlet" method="post">
