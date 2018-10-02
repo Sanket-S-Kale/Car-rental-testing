@@ -20,19 +20,19 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger">Home</a>
+              <a class="nav-link js-scroll-trigger" href="userhome.jsp">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger">Request Rental</a>
+              <a class="nav-link js-scroll-trigger" href="RequestRental.jsp">Request Rental</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger">View Rentals</a>
+              <a class="nav-link js-scroll-trigger" href="ViewRentalServlet">View Rentals</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger">Delete Rental</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger">Update Profile</a>
+              <a class="nav-link js-scroll-trigger" href="EditProfileServlet">Update Profile</a>
             </li>
           </ul>
         </div>
