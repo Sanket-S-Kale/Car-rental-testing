@@ -29,9 +29,6 @@
               <a class="nav-link js-scroll-trigger" href="ViewRentalServlet">View Rentals</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger">Delete Rental</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="EditProfileServlet">Update Profile</a>
             </li>
           </ul>

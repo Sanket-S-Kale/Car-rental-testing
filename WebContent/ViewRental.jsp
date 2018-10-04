@@ -30,9 +30,6 @@
               <a class="nav-link js-scroll-trigger" href="SearchRental.jsp">Search Rental</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger">Delete Rental</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="EditProfileServlet">Update Profile</a>
             </li>
             <li class="nav-item">
@@ -43,8 +40,6 @@
       </div>
     </nav>
     <h2 style="margin-top:20px;">Search Results</h2>
-    
-        
         <table class="table bg-white table-hover table-bordered" >
         <thead>
  		<tr>
