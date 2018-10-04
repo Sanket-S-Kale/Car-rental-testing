@@ -3,7 +3,6 @@ package FirstProject.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Car_Rental_Util.sqlconnector;
-import Car_Rental_Util.sqlconnector;
+import FirstProject.model.RegisterErrors;
 
 public class RegistrationServlet extends HttpServlet {
 	 private static final long serialVersionUID = 1L;
@@ -37,167 +36,155 @@ public class RegistrationServlet extends HttpServlet {
   String dl = request.getParameter("dl");
   String address = request.getParameter("address");
 
+  /////////////////                           validate given input            /////////////////////////
   
-  
-/////////////////                           validate given input            /////////////////////////
-  
-Pattern pattern = Pattern.compile("[A-Za-z0-9_]+");
-Pattern hasUppercase = Pattern.compile("[A-Z]");
-Pattern hasLowercase = Pattern.compile("[a-z]");
-Pattern hasNumber = Pattern.compile("\\d");
-Pattern hasSpecialChar = Pattern.compile("[$&+,:;=?@#|'<>.^*()%!-]");
-Pattern dofb = Pattern.compile("^(0?[1-9]|1[0-2])/(0?[1-9]|1[0-9]|2[0-9]|3[01])/(1[0-9][0-9][0-9]|2[0-9][0-9][0-9])$");
-Pattern mail = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+"[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-
-///////////////////                         Validation for isRequired      ////////////////////////
-if (userName.isEmpty() || password.isEmpty() || utaid.isEmpty() || role.isEmpty() || dob.isEmpty() || phonenumber.isEmpty()|| email.isEmpty()|| dl.isEmpty()|| address.isEmpty()) {
-RequestDispatcher rd = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>Please fill all the fields</font>");
-rd.include(request, response);
-}
-
-
+  Pattern pattern = Pattern.compile("[A-Za-z0-9_-]+");
+  Pattern hasUppercase = Pattern.compile("[A-Z]");
+  Pattern hasLowercase = Pattern.compile("[a-z]");
+  Pattern hasNumber = Pattern.compile("\\d");
+  Pattern hasSpecialChar = Pattern.compile("[$&+,:;=?@#|'<>.^*()%!-]");
+  Pattern dofb = Pattern.compile("^(0?[1-9]|1[0-2])/(0?[1-9]|1[0-9]|2[0-9]|3[01])/(1[0-9][0-9][0-9]|2[0-9][0-9][0-9])$");
+  Pattern mail = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+"[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+ 
+  RegisterErrors re = new RegisterErrors();
+  boolean hasErrors = false;
+  ///////////////////                         Validation for isRequired      ////////////////////////
+  if (userName.isEmpty() || password.isEmpty() || utaid.isEmpty() || role.isEmpty() || dob.isEmpty() || phonenumber.isEmpty()|| email.isEmpty()|| dl.isEmpty()|| address.isEmpty()) {
+   RequestDispatcher rd = request.getRequestDispatcher("registration.jsp");
+   out.println("<font color=red>Please fill all the fields</font>");
+   rd.include(request, response);
+  }
+   
+   
 ///////                       Validation for userName:               ///////////////////
-
-
-if (!pattern.matcher(userName).matches()){
-RequestDispatcher rd = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>No Special Characters in Username</font>");
-rd.include(request, response);
-}
-if (userName.length() <= 5){
-RequestDispatcher rd = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>Username must have Minimum of 5 Characters</font>");
-rd.include(request, response);
-
-}
-if (userName.length() >=16){
-RequestDispatcher rd = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>Username must have Maximum of 16 Characters</font>");
-rd.include(request, response);
-}
-///////              Validation for Password:         ////////////////////
-
-if (password.length() < 6){
-RequestDispatcher rd = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>Password must have Minimum of 6 Characters</font>");
-rd.include(request, response);
-
-}
-if (!hasUppercase.matcher(password).find()) {
-RequestDispatcher rd5 = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>Password must have at least one Upper Case Character </font>");
-rd5.include(request, response);
-}
-if (!hasLowercase.matcher(password).find()) {
-RequestDispatcher rd6 = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>Password must have at least one Lower Case Character </font>");
-rd6.include(request, response);
-}
-if (!hasNumber.matcher(password).find()) {
-RequestDispatcher rd7 = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>Password must have at least one Number </font>");
-rd7.include(request, response);
-}
-if (!hasSpecialChar.matcher(password).find()) {
-RequestDispatcher rd8 = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>Password must have at least one Special Character </font>");
-rd8.include(request, response);
-}
-//////////////////            Validation for UTA ID:           ///////////////////
-
-if (utaid.length() != 10){
-RequestDispatcher rd9 = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>UTA ID has to be 10 digits only. </font>");
-rd9.include(request, response);
-
-}
-if (!utaid.matches("[0-9]+")){
-RequestDispatcher rd10 = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>UTA ID has to be Numeric Only. </font>");
-rd10.include(request, response);
-
-}
-
-/////////////                      Validation for Name:               ///////////////////
-
-if (!firstname.matches("[A-Za-z]+")){
-RequestDispatcher rd11 = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>First Name Has to contain alphabets only.. </font>");
-rd11.include(request, response);
-
-}
-
-if (!lastname.matches("[A-Za-z]+")){
-RequestDispatcher rd12 = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>Last Name Has to contain alphabets only.. </font>");
-rd12.include(request, response);
-
-}
-
-//////////////                    Validation for DOB:                /////////////////////
-
-if (!dofb.matcher(dob).matches()){
-RequestDispatcher rd13 = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>Not a Valid Date Format</font>");
-rd13.include(request, response);
-}
-////////////////////////////////////////////////////////(Incomplete)///////////////////
-
-///////////                       Validation of Phone Number:       ///////////////////////
-if (phonenumber.length() != 10){
-RequestDispatcher rd14 = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>Phone Number has to be 10 digits only. </font>");
-rd14.include(request, response);
-
-}
-if (!phonenumber.matches("[0-9]+")){
-RequestDispatcher rd15 = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>Phone Number has to be Numeric Only. </font>");
-rd15.include(request, response);
-
-}
-
-///////////////                  Validation for E-mail:         //////////////////////////
-
-if (!mail.matcher(email).matches()){
-RequestDispatcher rd16 = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>Invalid e-mail format</font>");
-rd16.include(request, response);
-}
-
-//////////////                   Validation for Drivers License      /////////////////////
-
-if (dl.length() != 8){
-RequestDispatcher rd17 = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>Drivers Licesnse has to be 8 digits only. </font>");
-rd17.include(request, response);
-
-}
-if (!dl.matches("[0-9]+")){
-RequestDispatcher rd18 = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>Drivers License has to be Numeric Only. </font>");
-rd18.include(request, response);
-
-}
-
-//////////////                 Validation for Address                /////////////////////
-
-if (address.length() < 10){
-RequestDispatcher rd19 = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>Address must have Minimum of 10 Characters</font>");
-rd19.include(request, response);
-
-}
-if (address.length() >=100){
-RequestDispatcher rd20 = request.getRequestDispatcher("registration.jsp");
-out.println("<font color=red>Address must have Maximum of 100 Characters</font>");
-rd20.include(request, response);
-} else {
+   
+   
+  else if (!pattern.matcher(userName).matches()){
+		  re.usernameError = "Must be alphanumeric and can contain only _ and - ";
+		  hasErrors = true;
+	  }
+	  else if (userName.length() <= 5){
+		  re.usernameError = "Must be greatar than 5 char";
+		  hasErrors = true;
+	  }
+	  else if (userName.length() >=16){
+		  re.usernameError = "Must be less than 16 char";
+		  hasErrors = true;
+	  }
+	  ///////              Validation for Password:         ////////////////////
+	  
+	  else if (password.length() < 6){
+		  re.passwordError = "Must be greater than 6 char";
+		  hasErrors = true;
+		  
+	  }
+	  else if (!hasUppercase.matcher(password).find()) {
+		  re.passwordError = "Must have at least One Upper Case";
+		  hasErrors = true;
+	  }
+	  else if (!hasLowercase.matcher(password).find()) {
+		  re.passwordError = "Must have at least One Lower Case";
+		  hasErrors = true;
+	  }
+	  else if (!hasNumber.matcher(password).find()) {
+		  re.passwordError = "Must have at least One Number";
+		  hasErrors = true;
+	  }
+	  else if (!hasSpecialChar.matcher(password).find()) {
+		  re.passwordError = "Must have at least One Special Character";
+		  hasErrors = true;
+	  }
+	  //////////////////            Validation for UTA ID:           ///////////////////
+	  
+	  else if (utaid.length() != 10){
+		  re.uidError = "Must be a 10 Digit Number Only";
+		  hasErrors = true;
+		  
+	  }
+	  else if (!utaid.matches("[0-9]+")){
+		  re.uidError = "Must be a 10 Digit Number Only";
+		  hasErrors = true;
+		  
+	  }
+	  
+	  /////////////                      Validation for Name:               ///////////////////
+	  
+	  else if (!firstname.matches("[A-Za-z]+")){
+		  re.fnameError = "Must contain Alphabets Only";
+		  hasErrors = true;
+		  
+	  }
+	  
+	  else if (!lastname.matches("[A-Za-z]+")){
+		  re.lnameError = "Must contain Alphabets Only";
+		  hasErrors = true;
+		  
+	  }
+	  
+	  //////////////                    Validation for DOB:                /////////////////////
+	  
+	  else if (!dofb.matcher(dob).matches()){
+		  re.dobError = "Must be Valid Date Format";
+		  hasErrors = true;
+	  }
+	  ////////////////////////////////////////////////////////(Incomplete)///////////////////
+	  
+	  ///////////                       Validation of Phone Number:       ///////////////////////
+	  else if (phonenumber.length() != 10){
+		  re.phoneError = "Must be 10 Digits in Length";
+		  hasErrors = true;
+		  
+	  }
+	  else if (!phonenumber.matches("[0-9]+")){
+		  re.phoneError = "Must conatin Numbers Only";
+		  hasErrors = true;
+	  }
+	  
+	  ///////////////                  Validation for E-mail:         //////////////////////////
+	  
+	  else if (!mail.matcher(email).matches()){
+		  re.emailError = "Must be valid e-mail format";
+		  hasErrors = true;
+	  }
+	  
+	  //////////////                   Validation for Drivers License      /////////////////////
+	  
+	  else if (dl.length() != 8){
+		  re.dlError = "Must be 8 digits in length";
+		  hasErrors = true;
+		  
+	  }
+	  else if (!dl.matches("[0-9]+")){
+		  re.dlError = "Must be Numeric Only";
+		  hasErrors = true;
+	  }
+	  
+	  //////////////                 Validation for Address                /////////////////////
+	  
+	  else if (address.length() < 10){
+		  re.addressError = "Must Contain Minimum 10 Characters";
+		  hasErrors = true;
+		  
+	  }
+	  else if (address.length() >=100){
+		  re.addressError = "Must Contain Less Than 100 Characters";
+		  hasErrors = true;
+	  }
+	  
+	  if(hasErrors == true){
+		  RequestDispatcher rd20 = request.getRequestDispatcher("registration.jsp");
+		  request.setAttribute("errorList",re);
+		   rd20.forward(request, response);
+	  }
+ 
+	  
+  else {
+	  
+	  ///////////////////////////////////////////////////////////////////////
 	  Connection conn = null;
       PreparedStatement pst = null;
       ResultSet rs = null;
-
+	  
    // inserting data into mysql database 
    // create a test database and student table before running this to create table
    //create table student(name varchar(100), userName varchar(100), pass varchar(100), addr varchar(100), age int, qual varchar(100), percent varchar(100), year varchar(100));
@@ -276,7 +263,8 @@ rd20.include(request, response);
        } 
    }
   }
- }
-   
+}
+ 
+
 
  

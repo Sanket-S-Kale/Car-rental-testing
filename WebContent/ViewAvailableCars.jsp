@@ -18,25 +18,16 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="rentalmanagerhome.jsp">Home</a>
+              <a class="nav-link js-scroll-trigger" href="userhome.jsp">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger">Car Calendar</a>
+              <a class="nav-link js-scroll-trigger" href="CheckReserveRentalServlet">Request Rental</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger">Check Car Availability</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="SearchRental.jsp">Search Rental</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger">Delete Rental</a>
+              <a class="nav-link js-scroll-trigger" href="ViewRentalServlet">View Rentals</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="EditProfileServlet">Update Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="addcar.jsp">Add Car</a>
             </li>
           </ul>
         </div>
@@ -47,7 +38,7 @@
         Hello,
         <%=session.getAttribute("name")%>  below are the cars available for your search parameters :- </h3>
         
-        <table style=" background-color: white" >
+        <table class="table table-stripeds" style=" background-color: white" >
  		<tr>
   		<th>Car ID</th>
   		<th>Car Name</th>
@@ -62,21 +53,19 @@
  		</tr>
        <c:forEach var="var1" items='${requestScope["queryResults"]}'>
  <tr>  
-     <td>   ${var1.car_id}</td>
-       <td> ${var1.car_name}</td>
-       <td> ${var1.capacity}</td>
-     <td>   ${var1.weekday_rate} </td>
-   <td>     ${var1.weekend_rate} </td>
-   <td>     ${var1.weekly_rate} </td>
-    <td>     ${var1.gps_rate} </td>
-    <td>     ${var1.onstar_rate} </td>
-    <td>     ${var1.sirusXM_rate} </td>
-    
-    
+     <td>${var1.car_id}</td>
+     <td>${var1.car_name}</td>
+     <td>${var1.capacity}</td>
+     <td>${var1.weekday_rate}</td>
+	 <td>${var1.weekend_rate}</td>
+  	 <td>${var1.weekly_rate}</td>
+     <td>${var1.gps_rate}</td>
+     <td>${var1.onstar_rate}</td>
+     <td>${var1.sirusXM_rate}</td>
     <td> 
        <form action="BookCarRentalServlet" method="get">
        			<input type="hidden" name="car_id" value="${var1.car_id}" />
-				<button type="submit" class="car_id" >Book Car!!</button>
+				<button class="btn btn-primary btn-sm" type="submit" class="car_id" >Book Car!!</button>
 		</form>
 	</td>
      </tr> 
