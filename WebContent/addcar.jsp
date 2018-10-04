@@ -32,6 +32,7 @@
 						<td>
 							<input type="text" class="form-control" name="carname">
 						</td>
+						<td class="text-danger">${errorList.carnameError }</td>>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -39,19 +40,8 @@
 						</td>
 						<td>
 							<input type="text" class="form-control" name="capacity">
-							<!-- <select class="form-control" name="role"id="role">
-							    <option value="Select Role" selected>Select Role</option>
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<option value="6">6</option>
-								<option value="7">7</option>
-								<option value="8">8</option>
-								<option value="9">9</option>
-							</select> -->
 						</td>
+						<td class="text-danger">${errorList.capacityError }</td>>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -60,6 +50,7 @@
 						<td>
 							<input type="text" class="form-control" name="weekdayrate">
 						</td>
+						<td class="text-danger">${errorList.weekdayError }</td>>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -68,6 +59,7 @@
 						<td>
 							<input type="text" class="form-control" name="weekendrate">
 						</td>
+						<td class="text-danger">${errorList.weekendError }</td>>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -76,6 +68,7 @@
 						<td>
 							<input type="text" class="form-control" name="weeklyrate">
 						</td>
+						<td class="text-danger">${errorList.weeklyError }</td>>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -84,6 +77,7 @@
 						<td>
 							<input type="text" class="form-control" name="gpsrate">
 						</td>
+						<td class="text-danger">${errorList.gpsError }</td>>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -92,6 +86,7 @@
 						<td>
 							<input type="text" class="form-control" name="onstarrate">
 						</td>
+						<td class="text-danger">${errorList.onstarError }</td>>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -100,6 +95,7 @@
 						<td>
 							<input class="form-control" type="text" name="siriusxmrate">
 						</td>
+						<td class="text-danger">${errorList.siriusxmError }</td>>
 					</tr>	
 				</table>
 				<input style="margin-left:auto!important; margin-right:auto!important; margin-top:10px;" class="btn" type="submit" value="Add Car" />

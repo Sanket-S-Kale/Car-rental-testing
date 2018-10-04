@@ -52,8 +52,9 @@ public class CheckReserveRentalServlet extends HttpServlet {
 			   	   	}
 			   	   	if(is_revok.equals("1")){
 				   	   	RequestDispatcher rd = request.getRequestDispatcher("userhome.jsp");
-					   	rd.include(request,response); 
-					   	out.println("<font color=red>Your rental reservation rights have been revoked.</font>");
+				   	 request.setAttribute("revokeError","Your rental reservation rights have been revoked");
+					   rd.forward(request, response);
+//					   	out.println("<font color=red>Your rental reservation rights have been revoked.</font>");
 			   	   	}else{
 					   	 RequestDispatcher rd = request.getRequestDispatcher("RequestRental.jsp");
 					   	 rd.include(request,response); 

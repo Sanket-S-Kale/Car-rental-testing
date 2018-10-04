@@ -126,7 +126,7 @@
 						<td>
 							<textarea type="text" class="form-control" name="address"></textarea>
 						</td>
-						<td class="text-danger">${errorList.addressError }</td>>
+						<td class="text-danger">${errorList.addressError }</td>
 					</tr>	
 				</table>
 				<input style="margin-left:auto!important; margin-right:auto!important; margin-top:10px;" class="btn" type="submit" value="register" />

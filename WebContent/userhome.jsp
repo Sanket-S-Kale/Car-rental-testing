@@ -2,6 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <html>
 <head>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <title>Login Page</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -9,6 +10,12 @@
 	
 	<title>User Homepage</title>
 </head>
+<script type="text/javascript">
+
+(function blink() { 
+	  $('.blink').fadeOut(500).fadeIn(500, blink); 
+	})();
+</script>
 <body>
  	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
@@ -46,6 +53,7 @@
   		<div class="text-center" style="margin-left: auto!important; margin-right: auto!important;">
   		<h1>Go Mav Car Rental</h1>
   		<h2 class="text-white-50" style="font-style: italic;">- Go beyond the horizon</h2>
+  		<h2 style="color:red;" class="blink">${revokeError }</h2>
   		</div>
   		</div>
   	</header>
