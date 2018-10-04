@@ -20,11 +20,14 @@ import FirstProject.model.ViewReportDAO;
 
 public class ViewRentalServlet extends HttpServlet {
 	 private static final long serialVersionUID = 1L;
+	 static String temp;
 	 
  protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
   // TODO Auto-generated method stub
   response.setContentType("text/html");
   PrintWriter out = response.getWriter();
+  PreparedStatement qry = null;
+  ResultSet qrs = null;
   
 	  Connection conn = null;
       PreparedStatement pst = null;
@@ -61,9 +64,34 @@ public class ViewRentalServlet extends HttpServlet {
     	  System.out.println(rs.getString(1));
       }
       request.setAttribute("queryResults", mylist);
-      RequestDispatcher rd=request.getRequestDispatcher("ViewUserBookings.jsp");  
-      rd.include(request,response);
       
+      qry = conn.prepareStatement("select role_id from user_roles where user_name = ?");
+      qry.setString(1, username);
+      qrs = qry.executeQuery();
+      while(qrs.next()){
+    	   temp = qrs.getString(1);
+  
+      qry = conn.prepareStatement("select role_name from roles where role_id = ?");
+      qry.setString(1, temp);
+      qrs = qry.executeQuery();
+      while(qrs.next()){
+    	   temp = qrs.getString(1);
+
+	if(temp.equals("Rental Manager"))
+	{
+        RequestDispatcher rd=request.getRequestDispatcher("ViewRental.jsp");  
+        rd.forward(request,response);  
+    	}
+    	else if(temp.equals("User"))
+    	{
+        RequestDispatcher rd=request.getRequestDispatcher("ViewUserBookings.jsp");  
+        rd.forward(request,response);  
+    	}	
+			out.print("<p style=\"color:red\">Record Successfully Updated</p>"); 
+      }
+      }
+      pst.close();
+      conn.close();
 
   } catch (Exception e) {
       System.out.println(e);
