@@ -8,8 +8,36 @@
 <link rel="stylesheet" href="./style.css">
 </head>
 <body class="masthead" style="height:100vh; padding:0;">
-    <h2>Booking Report for user</h2>
-    <h3>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="LogoutServlet">Logout</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="userhome.jsp">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="RequestRental.jsp">Request Rental</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="ViewRentalServlet">View Rentals</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger">Delete Rental</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="EditProfileServlet">Update Profile</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <h2 style"margin-top:50px;">Booking Report for user</h2>
+    <h3 style"margin-top:50px;>
         Hello,
         <%=session.getAttribute("name")%>  below are bookings done by you :- </h3>
         

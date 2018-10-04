@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="./style.css">
 	
 
-	<title>Revoke Renter</title>
+	<title>Edit User Profile</title>
 </head>
 <body>	
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -46,7 +46,7 @@
   		<h2 class="text-white-50" style="">- Go beyond the horizon</h2>
   		<form action="EditUserProfileServlet" method="post">
 		<fieldset style="margin-left: auto!important; margin-right:auto!important; width: 500px">
-            <legend class="text-white-50"> Revoke Renter </legend>
+            <legend class="text-white-50"> Edit User Profile </legend>
             <table>
 				<tr>
 						<td class="text-white-50">

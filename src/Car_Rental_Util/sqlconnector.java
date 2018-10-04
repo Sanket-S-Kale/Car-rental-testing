@@ -14,16 +14,16 @@ public class sqlconnector {
 	  PreparedStatement pst = null;
 	  ResultSet rs = null;
 		 
-		 try {
-
-		  String url = "jdbc:mysql://localhost:3307/";
+	  try {
+		  String url = "jdbc:mysql://localhost:3306/";
 	      String dbName = "car_rental_testing";
+	      String timezone = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	      String driver = "com.mysql.jdbc.Driver";
 	      String userName_1 = "root";
-	      String password_1 = "october123";
+	      String password_1 = "root";
 	      Class.forName(driver).newInstance();
 	      conn = DriverManager
-	                   .getConnection(url + dbName, userName_1, password_1);
+	                   .getConnection(url + dbName + timezone, userName_1, password_1);
 
 		 }
 		 catch (Exception e) {

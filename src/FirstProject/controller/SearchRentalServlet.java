@@ -51,14 +51,25 @@ public class SearchRentalServlet extends HttpServlet {
 		Connection conn = null;
 	      PreparedStatement pst = null;
 	      ResultSet rs = null;
-	      String username = request.getParameter("username");
-	      int rentalid = Integer.parseInt(request.getParameter("rentalid"));
+	      if(request.getParameter("username").isEmpty() && request.getParameter("rentalid").isEmpty()){
+	    	  RequestDispatcher rd=request.getRequestDispatcher("SearchRental.jsp");  
+		      rd.include(request,response);
+	    	  out.print("Please enter either Reservation ID or Username to Search.");
+	      }else{
+	      String username = null;
+	      int rentalid = 0;
+	      if(!request.getParameter("username").isEmpty())
+	    	  username = request.getParameter("username");
+	      if(!request.getParameter("rentalid").isEmpty())
+	    	  rentalid = Integer.parseInt(request.getParameter("rentalid"));
+	      
+	      
 			try{
 		      	
 		      	conn=sqlconnector.connect();
 		      	
 		      pst = conn
-		              .prepareStatement("SELECT * FROM car_rental_testing.reservations where user_name='"+username+"' or reservation_id = " + rentalid);
+		              .prepareStatement("SELECT car_name,user_name,start_date,start_time,end_date,end_time,reservation_id FROM car_rental_testing.reservations rs, car_rental_testing.cars cr where rs.car_id=cr.car_id and (rs.user_name='"+username+"' or rs.reservation_id = " + rentalid + ")");
 		      //pst.setString(1, name);
 		      //pst.setString(2, pass);
 		      
@@ -81,7 +92,7 @@ public class SearchRentalServlet extends HttpServlet {
 
 		      }
 		      request.setAttribute("queryResults", mylist);
-		      RequestDispatcher rd=request.getRequestDispatcher("ViewUserBookings.jsp");  
+		      RequestDispatcher rd=request.getRequestDispatcher("ViewRental.jsp");  
 		      rd.include(request,response);
 		      
 
@@ -111,6 +122,7 @@ public class SearchRentalServlet extends HttpServlet {
 		      }
 		  }
 		doGet(request, response);
+	      }
 	}
 
 }

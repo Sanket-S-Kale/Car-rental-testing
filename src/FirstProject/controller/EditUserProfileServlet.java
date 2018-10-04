@@ -18,41 +18,30 @@ import javax.servlet.http.HttpServletResponse;
 import Car_Rental_Util.sqlconnector;
 import FirstProject.model.UserDetails;
 
-/**
- * Servlet implementation class RevokeRenterServlet
- */
 @WebServlet("/EditUserProfileServlet")
 public class EditUserProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public EditUserProfileServlet() {
         super();
-        // TODO Auto-generated constructor stub
+
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+
 		PrintWriter out = response.getWriter();
-		String username = request.getParameter("username");
+		String username1 = request.getParameter("username");
+		System.out.println(username1);
 		Connection conn = null;
 	      PreparedStatement pst = null;
 	      ResultSet rs = null;
 		
-		if(username.isEmpty()){
+		if(username1.isEmpty()){
 			RequestDispatcher rd = request.getRequestDispatcher("EditUserProfile.jsp");
 			   out.println("<font color=red>Please fill all the fields</font>");
 			   rd.include(request,response); 
@@ -63,13 +52,9 @@ public class EditUserProfileServlet extends HttpServlet {
 		      	conn=sqlconnector.connect();
 		      	
 		      pst = conn
-		              .prepareStatement("SELECT * FROM car_rental_testing.users where user_name='"+username+"'");
-		      //pst.setString(1, name);
-		      //pst.setString(2, pass);
-		      
-
+		              .prepareStatement("SELECT * FROM car_rental_testing.users where user_name='"+username1+"'");
 		      rs = pst.executeQuery();
-		      
+		     
 		      ArrayList<UserDetails> mylist=new ArrayList<UserDetails>(); 
 		      while(rs.next())
 		      { 
