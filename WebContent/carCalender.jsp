@@ -6,9 +6,7 @@
 <title>Login Page</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="./style.css">
-	
 	<title>Rental Manager Homepage</title>
-
 </head>
 <body class="masthead" style="height:100vh; padding-top:90px;">
  	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
