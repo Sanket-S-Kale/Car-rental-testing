@@ -24,7 +24,7 @@
               <a class="nav-link js-scroll-trigger">Car Calendar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger">Check Car Availability</a>
+              <a class="nav-link js-scroll-trigger" href="ViewAvailableCars.jsp">Check Car Availability</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="SearchRental.jsp">Search Rental</a>

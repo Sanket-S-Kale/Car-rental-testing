@@ -18,16 +18,22 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="userhome.jsp">Home</a>
+              <a class="nav-link js-scroll-trigger" href="rentalmanagerhome.jsp">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="CheckReserveRentalServlet">Request Rental</a>
+              <a class="nav-link js-scroll-trigger">Car Calendar</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="ViewRentalServlet">View Rentals</a>
+              <a class="nav-link js-scroll-trigger" href="RequestRental.jsp">Check Car Availability</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="SearchRental.jsp">Search Rental</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="EditProfileServlet">Update Profile</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="addcar.jsp">Add Car</a>
             </li>
           </ul>
         </div>

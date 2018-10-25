@@ -10,7 +10,7 @@
 	<title>Rental Manager Homepage</title>
 
 </head>
-<body>
+<body class="masthead" style="height:100vh; padding-top:90px;">
  	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="LogoutServlet">Logout</a>
@@ -42,7 +42,7 @@
         </div>
       </div>
     </nav>
-    <header class="masthead1" style="height:100vh; padding:0;">
+    <!-- <header class="masthead1" style="height:100vh; padding:0;">
   	<div class="container" style="height: 100% !important;
     display: flex;
     align-items: center;
@@ -55,6 +55,57 @@
   		<h2 class="text-white-50" style="font-style: italic;">- Go beyond the horizon</h2>
   		</div>
   		</div>
-  	</header>
+  	</header> -->
+  	<div>
+      <form class="text-white-50" action="">
+		<p>From: <input type="text" name="fromcalender" placeholder="YYYY/MM/DD">&nbsp;&nbsp;&nbsp; 
+			To: <input type="text" name="tocalender" placeholder="YYYY/MM/DD">&nbsp;&nbsp;&nbsp; 
+			<input type="submit" value="search">
+		</p>				
+        
+      </form>
+  </div>
+  <div>
+    <table class="table table-striped bg-white">
+      <thead>
+        <tr>
+          <th >
+          RentalID
+        </th>
+        <th>
+          User
+        </th>
+        <th>
+          Start Date
+        </th>
+        <th>
+          Start Time
+        </th>
+        <th>
+          End Date
+        </th>
+        <th>
+          End Time
+        </th>
+        <th>
+          Car Name
+        </th>
+        </tr>
+      </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      
+    </table>
+  </div>
+  	
 </body>
 </html>
