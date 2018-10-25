@@ -7,7 +7,6 @@
 <title>Reserve Car</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" href="./style.css">
-	
 </head>
 <body>
 	<header class="masthead" style="height:100vh; padding:0;">
@@ -70,7 +69,7 @@
 							Pick Up Time
 						</td>
 						<td>
-							<input type="text" class="form-control" name="pickuptime" placeholder="HH:MM">
+							<input type="text" class="form-control" name="pickuptime" value="${var1.pickuptime}">
 						</td>
 					</tr>
 					<tr>
@@ -86,7 +85,7 @@
 							End Time
 						</td>
 						<td>
-							<input type="text" class="form-control" name="dropofftime" placeholder="HH:MM">
+							<input type="text" class="form-control" name="dropofftime" value="${var1.dropofftime}">
 						</td>
 					</tr>
 					
@@ -98,23 +97,22 @@
 							<input type="text" class="form-control" name="amount" value="${var1.amount}">
 						</td>
 					</tr>
+					<tr>
 						<td class="text-white-50">
-							<p><input type="checkbox" name="gps" value="1">GPS</p>
+							<p><input type="checkbox" name="gps" value="1" checked>GPS</p>
 						</td>
 						<td class="text-white-50">
-							<p><input type="checkbox" name="onstar" value="2">OnStar</p>
+							<p><input type="checkbox" name="onstar" value="1" checked>OnStar</p>
 						</td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
-							<p><input type="checkbox" name="siriusxm" value="3">SiriusXM</p>
+							<p><input type="checkbox" name="siriusxm" value="1">SiriusXM</p>
 						</td>
 						<td class="text-white-50">
-							<p><input type="checkbox" name="clubmember" value="4">Arlington auto club member</p>
+							<p><input type="checkbox" name="clubmember" value="1">Arlington auto club member</p>
 						</td>
 					</tr>
-					
-				
 			</c:forEach>
 		</table>
 		<table>

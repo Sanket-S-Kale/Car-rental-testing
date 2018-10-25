@@ -14,6 +14,48 @@ public class AvailableCars {
 	double amount;
 	String pickupdate;
 	String dropoffdate;
+	String pickuptime;
+	String dropofftime;
+	String gps;
+	String onstar;
+	String siriusxp;
+	String clubmember;
+	public String getPickuptime() {
+		return pickuptime;
+	}
+	public void setPickuptime(String pickuptime) {
+		this.pickuptime = pickuptime;
+	}
+	public String getDropofftime() {
+		return dropofftime;
+	}
+	public void setDropofftime(String dropofftime) {
+		this.dropofftime = dropofftime;
+	}
+	public String getGps() {
+		return gps;
+	}
+	public void setGps(String gps) {
+		this.gps = gps;
+	}
+	public String getOnstar() {
+		return onstar;
+	}
+	public void setOnstar(String onstar) {
+		this.onstar = onstar;
+	}
+	public String getSiriusxp() {
+		return siriusxp;
+	}
+	public void setSiriusxp(String siriusxp) {
+		this.siriusxp = siriusxp;
+	}
+	public String getClubmember() {
+		return clubmember;
+	}
+	public void setClubmember(String clubmember) {
+		this.clubmember = clubmember;
+	}
 	public String getDropoffdate() {
 		return dropoffdate;
 	}

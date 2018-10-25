@@ -98,6 +98,14 @@
     <servlet-name>AddcarServlet</servlet-name>
     <url-pattern>/AddcarServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>CarCalenderServlet</servlet-name>
+    <servlet-class>FirstProject.controller.CarCalenderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CarCalenderServlet</servlet-name>
+    <url-pattern>/CarCalenderServlet</url-pattern>
+  </servlet-mapping>
   
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>

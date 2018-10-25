@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -22,7 +23,7 @@
               <a class="nav-link js-scroll-trigger" href="rentalmanagerhome.jsp">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="carCalender.jsp">Car Calendar</a>
+              <a class="nav-link js-scroll-trigger" href="CarCalenderServlet">Car Calendar</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="RequestRental.jsp">Check Car Availability</a>
@@ -55,7 +56,7 @@
   		</div>
   	</header> -->
   	<div>
-      <form class="text-white-50" action="">
+      <form class="text-white-50" action="CarCalenderServlet" method="POST">
 		<p>From: <input type="text" name="fromcalender" placeholder="YYYY/MM/DD">&nbsp;&nbsp;&nbsp; 
 			To: <input type="text" name="tocalender" placeholder="YYYY/MM/DD">&nbsp;&nbsp;&nbsp; 
 			<input type="submit" value="search">
@@ -89,17 +90,20 @@
           Car Name
         </th>
         </tr>
+        
       </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
+	        <c:forEach var="var2" items='${requestScope["queryResults1"]}'>
+	          <tr>
+	          <td>${var2.reservation_id}</td>
+		      <td>${var2.user_name}</td>
+		      <td>${var2.start_date}</td>
+		      <td>${var2.start_time}</td>
+			  <td>${var2.end_date}</td>
+		  	  <td>${var2.end_time}</td>
+		      <td>${var2.car_name}</td>
+	          </tr> 
+	         </c:forEach>
         </tbody>
       
     </table>

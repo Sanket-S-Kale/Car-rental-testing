@@ -80,6 +80,8 @@
        			<input type="hidden" name="car_id" value="${var1.car_id}" />
        			<input type="hidden" name="pickupdate" value="${var1.pickupdate}" />
        			<input type="hidden" name="dropoffdate" value="${var1.dropoffdate}" />
+       			<input type="hidden" name="pickuptime" value="${var1.pickuptime}" />
+       			<input type="hidden" name="dropofftime" value="${var1.dropofftime}" />
        			<input type="hidden" name="amount1" value="${var1.amount}" />
 				<button class="btn btn-primary btn-sm" type="submit" class="car_id" >Book Car!!</button>
 		</form>

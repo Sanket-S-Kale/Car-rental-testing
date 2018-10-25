@@ -22,6 +22,8 @@ import Car_Rental_Util.sqlconnector;
 public class CompleteBookingServlet extends HttpServlet {
 	 private static final long serialVersionUID = 1L;
 	 static String temp;
+	// int gps;
+	//int onstar,siriusxm,clubmember;
 	 
  @SuppressWarnings("resource")
 protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,9 +32,27 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
   String username=(String) request.getSession().getAttribute("name");
   PrintWriter out = response.getWriter();
   String has_gps = request.getParameter("gps");
+//  if(has_gps=="1")
+//  {
+//	   gps=1;
+//  }
+  
+	  
   String has_on_star = request.getParameter("onstar");
+//  if(has_on_star=="2")
+//  {
+//	   onstar=1;
+//  } 
   String has_sirius_xm = request.getParameter("siriusxm");
+//  if(has_sirius_xm=="3")
+//  {
+//	   siriusxm=1;
+//  }
   String is_arlington_club_member = request.getParameter("clubmember");
+//  if(is_arlington_club_member=="4")
+//  {
+//	   clubmember=1;
+//  }
   String start_date = request.getParameter("pickupdate");
   String start_time = request.getParameter("pickuptime");
   String end_date = request.getParameter("dropoffdate");
@@ -40,6 +60,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
   String car_id = request.getParameter("car_id");
   String car_name = request.getParameter("car_name");
   String capacity = request.getParameter("capacity");
+  String amount = request.getParameter("amount");
   String user_name=(String) request.getSession().getAttribute("name");
   PreparedStatement qry = null;
   ResultSet qrs = null;
@@ -61,7 +82,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	   
 	   	   conn=sqlconnector.connect();
 
-           pst = conn.prepareStatement("INSERT INTO car_rental_testing.reservations ( car_id, user_name, start_date, start_time, end_date, end_time, has_gps, has_on_star, has_sirius_xm, is_arlington_club_member, base_cost, tax, discount, total_cost) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,'230', '20', '20', '1000')");
+           pst = conn.prepareStatement("INSERT INTO car_rental_testing.reservations ( car_id, user_name, start_date, start_time, end_date, end_time, has_gps, has_on_star, has_sirius_xm, is_arlington_club_member, base_cost, tax, discount, total_cost) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, '0.00', '0', ?)");
 //           pst.setString(1, role);
            
 
@@ -71,10 +92,12 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			pst.setString(4, start_time);
 			pst.setString(5, end_date);
 			pst.setString(6, end_time);
-			pst.setBoolean(7, Boolean.parseBoolean(has_gps));
-			pst.setBoolean(8, Boolean.parseBoolean(has_on_star));
-			pst.setBoolean(9, Boolean.parseBoolean(has_sirius_xm));
-			pst.setBoolean(10, Boolean.parseBoolean(is_arlington_club_member));
+			pst.setString(7,has_gps);
+			pst.setString(8, has_on_star);
+			pst.setString(9, has_sirius_xm);
+			pst.setString(10, is_arlington_club_member);
+			pst.setDouble(11, Double.parseDouble(amount));
+			pst.setDouble(12, Double.parseDouble(amount));
 			pst.executeUpdate();
 			
 			

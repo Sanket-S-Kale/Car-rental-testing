@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,31 +16,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Car_Rental_Util.sqlconnector;
-import Car_Rental_Util.sqlconnector;
+import FirstProject.model.carBooked;
+//import Car_Rental_Util.sqlconnector;
 
 public class CarCalenderServlet extends HttpServlet {
 	 private static final long serialVersionUID = 1L;
 	 
  protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-  // TODO Auto-generated method stub
+  
   response.setContentType("text/html");
   PrintWriter out = response.getWriter();
-  String has_gps = request.getParameter("gps");
-  String has_on_star = request.getParameter("onstar");
-  String has_sirius_xm = request.getParameter("siriusxm");
-  String is_arlington_club_member = request.getParameter("clubmember");
-  String start_date = request.getParameter("pickupdate");
-  String start_time = request.getParameter("pickuptime");
-  String end_date = request.getParameter("dropoffdate");
-  String end_time = request.getParameter("dropofftime");
-  String car_id = request.getParameter("car_id");
-  String car_name = request.getParameter("car_name");
-  String capacity = request.getParameter("capacity");
-  String user_name=(String) request.getSession().getAttribute("name");
+  String fromDate = request.getParameter("fromcalender");
+  
+  String toDate = request.getParameter("tocalender");
 
-  // validate given input
-  if (start_time.isEmpty()|| end_date.isEmpty()|| end_time.isEmpty()|| car_id.isEmpty()|| car_name.isEmpty()|| capacity.isEmpty()) {
-   RequestDispatcher rd = request.getRequestDispatcher("CompleteBooking.jsp");
+  if (fromDate.isEmpty()|| toDate.isEmpty()) {
+   RequestDispatcher rd = request.getRequestDispatcher("carCalender.jsp");
    out.println("<font color=red>Please fill all the fields</font>");
    rd.include(request, response);
   } else {
@@ -48,34 +39,31 @@ public class CarCalenderServlet extends HttpServlet {
       PreparedStatement pst = null;
       ResultSet rs = null;
 
-   // inserting data into mysql database 
-   // create a test database and student table before running this to create table
-   //create table student(name varchar(100), userName varchar(100), pass varchar(100), addr varchar(100), age int, qual varchar(100), percent varchar(100), year varchar(100));
-   try {
-	   
+  try {
 	   	   conn=sqlconnector.connect();
-
-           pst = conn.prepareStatement("INSERT INTO car_rental_testing.reservations ( car_id, user_name, start_date, start_time, end_date, end_time, has_gps, has_on_star, has_sirius_xm, is_arlington_club_member, base_cost, tax, discount, total_cost) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?,'230', '20', '20', '1000')");
-//           pst.setString(1, role);
-           
-
-			pst.setString(1, car_id);
-			pst.setString(2, user_name);
-			pst.setString(3, start_date);
-			pst.setString(4, start_time);
-			pst.setString(5, end_date);
-			pst.setString(6, end_time);
-			pst.setBoolean(7, Boolean.parseBoolean(has_gps));
-			pst.setBoolean(8, Boolean.parseBoolean(has_on_star));
-			pst.setBoolean(9, Boolean.parseBoolean(has_sirius_xm));
-			pst.setBoolean(10, Boolean.parseBoolean(is_arlington_club_member));
-			pst.executeUpdate();
-			pst.close();
-			conn.close();
-			RequestDispatcher rd=request.getRequestDispatcher("userhome.jsp");
-			out.print("<p style=\"color:red\">Record Successfully added</p>");
-            rd.include(request,response); 
+           pst = conn.prepareStatement("SELECT r.reservation_id, r.user_name,r.start_date,r.start_time,r.end_date,r.end_time,c.car_name FROM car_rental_testing.reservations as r,car_rental_testing.cars as c where start_date between '"+fromDate+"' and '"+toDate+"' and r.car_id=c.car_id;");
+			//pst.executeUpdate();
+			rs = pst.executeQuery();
 			
+			ArrayList<carBooked> mylist=new ArrayList<carBooked>(); 
+		      while(rs.next())
+		      { 
+		    	  carBooked obj= new carBooked();
+		    	  obj.setreservation_id(rs.getInt(1));	
+		    	  obj.setuser_name(rs.getString(2));
+		    	  obj.setstart_date(rs.getString(3));
+		    	  obj.setstart_time(rs.getString(4));
+		    	  obj.setend_date(rs.getString(5));
+		    	  obj.setend_time(rs.getString(6));
+		    	  obj.setcar_name(rs.getString(7));
+		    	  mylist.add(obj);   	
+		    	  System.out.println(rs.getString(1));
+		      }
+		      pst.close();
+			  conn.close();
+		      request.setAttribute("queryResults1", mylist);
+		      RequestDispatcher rd=request.getRequestDispatcher("carCalender.jsp");  
+		      rd.include(request,response);
        }
        catch (Exception e) {
            System.out.println(e);
@@ -101,7 +89,7 @@ public class CarCalenderServlet extends HttpServlet {
                    e.printStackTrace();
                }
            }   
-       } 
+      } 
    }
   }
  }

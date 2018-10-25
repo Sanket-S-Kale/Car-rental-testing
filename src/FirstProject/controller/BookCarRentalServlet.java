@@ -77,6 +77,12 @@ public class BookCarRentalServlet extends HttpServlet {
     	  obj.setSirusXM_rate(rs.getDouble(9));
     	  obj.setPickupdate(pickupdate);
     	  obj.setDropoffdate(dropoffdate);
+    	  obj.setPickuptime(pickuptime);
+    	  obj.setDropofftime(dropofftime);
+    	  obj.setGps(gps);
+    	  obj.setOnstar(onstar);
+    	  obj.setSiriusxp(siriusxm);
+    	  obj.setClubmember(clubmember);
     	  obj.setAmount(Double.parseDouble(amount));
     	  mylist.add(obj);   
     	  System.out.println(rs.getString(1));
