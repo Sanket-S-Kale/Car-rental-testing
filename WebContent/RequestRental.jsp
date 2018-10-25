@@ -29,7 +29,7 @@
 							Pickup Date
 						</td>
 						<td>
-							<input type="text" class="form-control" name="Pickup Date" placeholder="YYYY/MM/DD">
+							<input type="text" class="form-control" name="pickupdate" placeholder="YYYY/MM/DD">
 						</td>
 					</tr>
 					<tr>
@@ -37,7 +37,7 @@
 							Pick Up Time
 						</td>
 						<td>
-							<input type="text" class="form-control" name="Pick Up Time" placeholder="HH:MM">
+							<input type="text" class="form-control" name="pickuptime" placeholder="HH:MM">
 						</td>
 					</tr>
 					<tr>
@@ -45,7 +45,7 @@
 							End Date
 						</td>
 						<td>
-							<input type="text" class="form-control" name="End Date" placeholder="YYYY/MM/DD">
+							<input type="text" class="form-control" name="dropoffdate" placeholder="YYYY/MM/DD">
 						</td>
 					</tr>
 					<tr>
@@ -53,7 +53,7 @@
 							End Time
 						</td>
 						<td>
-							<input type="text" class="form-control" name="End Time" placeholder="HH:MM">
+							<input type="text" class="form-control" name="dropofftime" placeholder="HH:MM">
 						</td>
 					</tr>
 					<tr>
@@ -62,6 +62,22 @@
 						</td>
 						<td>
 							<input type="text" class="form-control" name="Capacity">
+						</td>
+					</tr>
+					<tr>
+						<td class="text-white-50">
+							<p><input type="checkbox" name="gps" value="1">GPS</p>
+						</td>
+						<td class="text-white-50">
+							<p><input type="checkbox" name="onstar" value="2">OnStar</p>
+						</td>
+					</tr>
+					<tr>
+						<td class="text-white-50">
+							<p><input type="checkbox" name="siriusxm" value="3">SiriusXM</p>
+						</td>
+						<td class="text-white-50">
+							<p><input type="checkbox" name="clubmember" value="4">Arlington auto club member</p>
 						</td>
 					</tr>
 					

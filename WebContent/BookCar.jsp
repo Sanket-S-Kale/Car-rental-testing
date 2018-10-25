@@ -59,41 +59,62 @@
 					</tr>
 					<tr>
 						<td class="text-white-50">
-							<p><input type="checkbox" name="gps" value="gps">GPS</p>
+							Pickup Date
 						</td>
-						<td class="text-white-50">
-							<p><input type="checkbox" name="onstar" value="onstar">OnStar</p>
-						</td>
-					</tr>
-					<tr>
-						<td class="text-white-50">
-							<p><input type="checkbox" name="siriusxm" value="siriusxm">SiriusXM</p>
-						</td>
-						<td class="text-white-50">
-							<p><input type="checkbox" name="clubmember" value="clubmember">Arlington auto club member</p>
+						<td>
+							<input type="text" class="form-control" name="pickupdate" value="${var1.pickupdate}">
 						</td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
-							<p>Pickup Date: <input type="text" name="pickupdate" placeholder="YYYY/MM/DD"> </p>
+							Pick Up Time
+						</td>
+						<td>
+							<input type="text" class="form-control" name="pickuptime" placeholder="HH:MM">
 						</td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
-							<p>Pickup Time: <input type="text" name="pickuptime" placeholder="HH:MM"> </p>
+							End Date
+						</td>
+						<td>
+							<input type="text" class="form-control" name="dropoffdate" value="${var1.dropoffdate}">
 						</td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
-							<p>Drop-off Date: <input  type="text" name="dropoffdate" placeholder="YYYY/MM/DD"> </p>	
+							End Time
+						</td>
+						<td>
+							<input type="text" class="form-control" name="dropofftime" placeholder="HH:MM">
+						</td>
+					</tr>
+					
+					<tr>
+						<td class="text-white-50">
+							Amount
+						</td>
+						<td>
+							<input type="text" class="form-control" name="amount" value="${var1.amount}">
+						</td>
+					</tr>
+						<td class="text-white-50">
+							<p><input type="checkbox" name="gps" value="1">GPS</p>
+						</td>
+						<td class="text-white-50">
+							<p><input type="checkbox" name="onstar" value="2">OnStar</p>
 						</td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
-							<p>Drop-off Time: <input type="text" name="dropofftime" placeholder="HH:MM"></p>
-							 
+							<p><input type="checkbox" name="siriusxm" value="3">SiriusXM</p>
+						</td>
+						<td class="text-white-50">
+							<p><input type="checkbox" name="clubmember" value="4">Arlington auto club member</p>
 						</td>
 					</tr>
+					
+				
 			</c:forEach>
 		</table>
 		<table>

@@ -55,9 +55,13 @@
   		<th>Gps Rate</th>
   		<th>Onstar Rate</th>
   		<th>SiriusXM Rate</th>
+  		<th>PickUpDate</th>
+  		<th>DropOffDate</th>
+  		<th>Amount($)</th>
   		<th> Action</th>
  		</tr>
        <c:forEach var="var1" items='${requestScope["queryResults"]}'>
+
  <tr>  
      <td>${var1.car_id}</td>
      <td>${var1.car_name}</td>
@@ -68,13 +72,20 @@
      <td>${var1.gps_rate}</td>
      <td>${var1.onstar_rate}</td>
      <td>${var1.sirusXM_rate}</td>
+     <td><input type="text" name="pickupdate" value="${var1.pickupdate}" /></td>
+     <td><input type="text" name="dropoffdate" value="${var1.dropoffdate}" /></td>
+     <td><input type="text" name="amount" value="${var1.amount}" /></td>
     <td> 
        <form action="BookCarRentalServlet" method="get">
        			<input type="hidden" name="car_id" value="${var1.car_id}" />
+       			<input type="hidden" name="pickupdate" value="${var1.pickupdate}" />
+       			<input type="hidden" name="dropoffdate" value="${var1.dropoffdate}" />
+       			<input type="hidden" name="amount1" value="${var1.amount}" />
 				<button class="btn btn-primary btn-sm" type="submit" class="car_id" >Book Car!!</button>
 		</form>
 	</td>
      </tr> 
+  
        
 </c:forEach>
       </table>

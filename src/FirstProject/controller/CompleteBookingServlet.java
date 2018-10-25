@@ -16,14 +16,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Car_Rental_Util.sqlconnector;
+import FirstProject.model.LoginDAO;
 import Car_Rental_Util.sqlconnector;
 
 public class CompleteBookingServlet extends HttpServlet {
 	 private static final long serialVersionUID = 1L;
+	 static String temp;
 	 
- protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+ @SuppressWarnings("resource")
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
   // TODO Auto-generated method stub
   response.setContentType("text/html");
+  String username=(String) request.getSession().getAttribute("name");
   PrintWriter out = response.getWriter();
   String has_gps = request.getParameter("gps");
   String has_on_star = request.getParameter("onstar");
@@ -37,6 +41,8 @@ public class CompleteBookingServlet extends HttpServlet {
   String car_name = request.getParameter("car_name");
   String capacity = request.getParameter("capacity");
   String user_name=(String) request.getSession().getAttribute("name");
+  PreparedStatement qry = null;
+  ResultSet qrs = null;
 
   // validate given input
   if (start_time.isEmpty()|| end_date.isEmpty()|| end_time.isEmpty()|| car_id.isEmpty()|| car_name.isEmpty()|| capacity.isEmpty()) {
@@ -70,13 +76,42 @@ public class CompleteBookingServlet extends HttpServlet {
 			pst.setBoolean(9, Boolean.parseBoolean(has_sirius_xm));
 			pst.setBoolean(10, Boolean.parseBoolean(is_arlington_club_member));
 			pst.executeUpdate();
-			pst.close();
-			conn.close();
-			RequestDispatcher rd=request.getRequestDispatcher("userhome.jsp");
-			out.print("<p style=\"color:red\">Record Successfully added</p>");
-            rd.include(request,response); 
 			
-       }
+			
+	          qry = conn.prepareStatement("select role_id from user_roles where user_name = ?");
+	          qry.setString(1, username);
+	          qrs = qry.executeQuery();
+	          while(qrs.next()){
+	        	   temp = qrs.getString(1);
+	      
+	          qry = conn.prepareStatement("select role_name from roles where role_id = ?");
+	          qry.setString(1, temp);
+	          qrs = qry.executeQuery();
+	          while(qrs.next()){
+	        	   temp = qrs.getString(1);
+			
+			if(temp.equals("Admin"))
+        	{
+	            RequestDispatcher rd=request.getRequestDispatcher("adminhome.jsp");  
+	            rd.forward(request,response);  
+	        	}
+	        	else if(temp.equals("Rental Manager"))
+	        	{
+	            RequestDispatcher rd=request.getRequestDispatcher("rentalmanagerhome.jsp");  
+	            rd.forward(request,response);  
+	        	}
+	        	else if(temp.equals("User"))
+	        	{
+	            RequestDispatcher rd=request.getRequestDispatcher("userhome.jsp");  
+	            rd.forward(request,response);  
+	        	}	
+		        out.print("<p style=\"color:red\">Record Successfully added</p>");
+		        pst.close();
+		        qry.close();
+				conn.close();
+			 }
+	          }
+   }
        catch (Exception e) {
            System.out.println(e);
        } finally {

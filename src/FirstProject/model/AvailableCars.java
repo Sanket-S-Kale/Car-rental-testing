@@ -11,6 +11,27 @@ public class AvailableCars {
 	double gps_rate;
 	double onstar_rate;
 	double sirusXM_rate;
+	double amount;
+	String pickupdate;
+	String dropoffdate;
+	public String getDropoffdate() {
+		return dropoffdate;
+	}
+	public void setDropoffdate(String dropoffdate) {
+		this.dropoffdate = dropoffdate;
+	}
+	public String getPickupdate() {
+		return pickupdate;
+	}
+	public void setPickupdate(String pickupdate) {
+		this.pickupdate = pickupdate;
+	}
+	public double getAmount() {
+		return amount;
+	}
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
 	public int getCar_id() {
 		return car_id;
 	}

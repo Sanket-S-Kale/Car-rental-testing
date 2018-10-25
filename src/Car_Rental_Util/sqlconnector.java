@@ -20,11 +20,9 @@ public class sqlconnector {
 	      String timezone = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	      String driver = "com.mysql.jdbc.Driver";
 	      String userName_1 = "root";
-	      String password_1 = "root";
+	      String password_1 = "October#123";
 	      Class.forName(driver).newInstance();
-	      conn = DriverManager
-	                   .getConnection(url + dbName + timezone, userName_1, password_1);
-
+	      conn = DriverManager.getConnection(url + dbName + timezone, userName_1, password_1);
 		 }
 		 catch (Exception e) {
 	           System.out.println(e);

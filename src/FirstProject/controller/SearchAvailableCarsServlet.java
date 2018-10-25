@@ -7,6 +7,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -14,6 +16,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.annotation.XmlElementDecl.GLOBAL;
 
 import Car_Rental_Util.sqlconnector;
 import FirstProject.model.AvailableCars;
@@ -35,10 +38,21 @@ public class SearchAvailableCarsServlet extends HttpServlet {
    // create a test database and student table before running this to create table
    //create table student(name varchar(100), userName varchar(100), pass varchar(100), addr varchar(100), age int, qual varchar(100), percent varchar(100), year varchar(100));
       try{
-      	
+    	 
       	conn=sqlconnector.connect();
       	//String username=(String) request.getSession().getAttribute("name");
       	String  cpcty=request.getParameter("Capacity"); 
+        String pickupdate=request.getParameter("pickupdate");  
+        String dropoffdate=request.getParameter("dropoffdate"); 
+        String gps1=request.getParameter("gps");
+        System.out.println(gps1);
+        Boolean gps= Boolean.parseBoolean(gps1);
+        String onstar1=request.getParameter("onstar");
+        Boolean onstar= Boolean.parseBoolean(onstar1);
+        String siriusxm1=request.getParameter("siriusxm");
+        Boolean siriusxm= Boolean.parseBoolean(siriusxm1);
+        String clubmember1=request.getParameter("clubmember");
+        Boolean clubmember= Boolean.parseBoolean(clubmember1);
       	int capacity=Integer.parseInt(cpcty);
       	
       pst = conn
@@ -62,6 +76,9 @@ public class SearchAvailableCarsServlet extends HttpServlet {
     	  obj.setGps_rate(rs.getDouble(7));
     	  obj.setOnstar_rate(rs.getDouble(8));
     	  obj.setSirusXM_rate(rs.getDouble(9));
+    	  obj.setPickupdate(pickupdate);
+    	  obj.setDropoffdate(dropoffdate);
+       	  obj.setAmount(payment_amount(rs.getDouble(4),rs.getDouble(6),rs.getDouble(7),rs.getDouble(8),rs.getDouble(9),pickupdate,dropoffdate,gps1,onstar1,siriusxm1,clubmember1));
     	  mylist.add(obj);   	
     	  System.out.println(rs.getString(1));
       }
@@ -97,5 +114,47 @@ public class SearchAvailableCarsServlet extends HttpServlet {
   }
  
 
+ }
+ double payment_amount(double  Weekday_rate,double  Weekly_rate,double  gps_rate,double onstar_rate,double  sirusxm_rate,String pickupdate,String dropoffdate, String gps,String onstar, String sirusxm, String clubmember ) throws ParseException
+ {
+ 	 double amount = 0;
+ 	 SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy/MM/dd");
+ 	 java.util.Date pickup_date = sdf1.parse(pickupdate);
+ 	 java.util.Date dropoff_date = sdf1.parse(dropoffdate);
+ 	 long diff = dropoff_date.getTime()-pickup_date.getTime();
+ 	 int days=(int)(diff / (1000 * 60 * 60 * 24));
+ 	 System.out.println(gps);
+ 	 if(days/7==0)
+ 	 {
+ 		 amount=(days%7)*Weekday_rate;
+ 	 }
+ 	 if(days/7!=0)
+ 	 {
+ 		int weeks=days/7;
+ 		 amount=(weeks*Weekly_rate) + (days - (weeks*7))*Weekday_rate;
+ 	 }
+ 	 
+ 	 
+ 	 
+ 	 if(gps!=null && gps.equals("1"))
+ 	 {
+ 		 amount=amount+days*gps_rate;
+ 	 }
+ 	 if(onstar!=null && onstar.equals("2"))
+ 	 {
+ 		 amount=amount+days*onstar_rate; 
+ 	 }
+ 	 if(sirusxm!=null&&sirusxm.equals("3"))
+ 	 {
+ 		 amount=amount+days*sirusxm_rate;
+ 	 }
+ 	 if(clubmember!=null&&clubmember.equals("4"))
+ 	 {
+ 		 amount=amount- (0.01*amount);
+ 	 }
+ 	 
+ 	 amount= amount+ (0.0825*amount);
+ 	 return amount;
+ 	   
  }
 }

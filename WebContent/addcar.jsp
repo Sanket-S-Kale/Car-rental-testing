@@ -41,7 +41,7 @@
 						<td>
 							<input type="text" class="form-control" name="capacity">
 						</td>
-						<td class="text-danger">${errorList.capacityError }</td>>
+						<td class="text-danger">${errorList.capacityError }</td>
 					</tr>
 					<tr>
 						<td class="text-white-50">

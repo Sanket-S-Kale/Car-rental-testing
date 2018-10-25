@@ -3,10 +3,13 @@ package FirstProject.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
@@ -39,6 +42,18 @@ public class BookCarRentalServlet extends HttpServlet {
       	conn=sqlconnector.connect();
       	//String username=(String) request.getSession().getAttribute("name");
       	int  carid=Integer.parseInt(request.getParameter("car_id"));
+      	String pickupdate=request.getParameter("pickupdate");
+      	String pickuptime=request.getParameter("pickuptime");
+        String dropoffdate=request.getParameter("dropoffdate");
+        String dropofftime=request.getParameter("dropofftime");
+        String gps=request.getParameter("gps");
+        String onstar=request.getParameter("onstar");
+        String siriusxm=request.getParameter("siriusxm");
+        String clubmember=request.getParameter("clubmember");
+        
+        
+        String amount=request.getParameter("amount1");
+      	
       pst = conn
               .prepareStatement("SELECT * FROM car_rental_testing.cars where car_id="+carid);
       //pst.setString(1, name);
@@ -54,9 +69,21 @@ public class BookCarRentalServlet extends HttpServlet {
     	  obj.setCar_id(rs.getInt(1));
     	  obj.setCar_name(rs.getString(2));
     	  obj.setCapacity(rs.getInt(3));
-    	  mylist.add(obj);   	
+    	  obj.setWeekday_rate(rs.getDouble(4));
+    	  obj.setWeekend_rate(rs.getDouble(5));
+    	  obj.setWeekly_rate(rs.getDouble(6));
+    	  obj.setGps_rate(rs.getDouble(7));
+    	  obj.setOnstar_rate(rs.getDouble(8));
+    	  obj.setSirusXM_rate(rs.getDouble(9));
+    	  obj.setPickupdate(pickupdate);
+    	  obj.setDropoffdate(dropoffdate);
+    	  obj.setAmount(Double.parseDouble(amount));
+    	  mylist.add(obj);   
     	  System.out.println(rs.getString(1));
       }
+      
+      
+     
       request.setAttribute("queryResults", mylist);
       RequestDispatcher rd=request.getRequestDispatcher("BookCar.jsp");  
       rd.include(request,response);
@@ -89,5 +116,10 @@ public class BookCarRentalServlet extends HttpServlet {
   }
  
 
+    
  }
+
+
+
+
 }
