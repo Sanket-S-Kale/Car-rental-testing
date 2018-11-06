@@ -15,12 +15,12 @@ public class sqlconnector {
 	  ResultSet rs = null;
 		 
 	  try {
-		  String url = "jdbc:mysql://localhost:3306/";
+		  String url = "jdbc:mysql://localhost:3307/";
 	      String dbName = "car_rental_testing";
 	      String timezone = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	      String driver = "com.mysql.jdbc.Driver";
 	      String userName_1 = "root";
-	      String password_1 = "October#123";
+	      String password_1 = "october123";
 	      Class.forName(driver).newInstance();
 	      conn = DriverManager.getConnection(url + dbName + timezone, userName_1, password_1);
 		 }
