@@ -1,0 +1,9 @@
+nandit,Root-123,Rental Manager,TRUE
+biswa,Root-123,Admin,TRUE
+sreekar,Root-123,User,TRUE
+nandit,root,User,FALSE
+biswa,root,User,FALSE
+sreekar,root,User,FALSE
+root,Root-123,User,FALSE
+root,Root-123,User,FALSE
+root,Root-123,User,FALSE

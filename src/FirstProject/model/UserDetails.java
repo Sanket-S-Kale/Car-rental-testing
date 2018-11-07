@@ -81,4 +81,7 @@ public class UserDetails {
 		this.is_revoked = is_revoked;
 	}
 
+	
+	
+	
 }
