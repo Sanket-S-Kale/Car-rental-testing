@@ -5,9 +5,9 @@
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="C:/apache-tomcat-9.0.0.M11/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Nandzz/Downloads/JUnitParams-1.0.4 (1).jar"/>
-	<classpathentry kind="lib" path="C:/Users/Nandzz/Downloads/mysql-connector-java-5.1.47-bin.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Nandzz/Downloads/mysql-connector-java-5.1.47.jar"/>
+	<classpathentry kind="lib" path="/Users/biswananda/Downloads/mysql-connector-java-5.1.47-bin.jar"/>
+	<classpathentry kind="lib" path="/Users/biswananda/Downloads/selenium-server-standalone-3.12.0.jar"/>
+	<classpathentry kind="lib" path="/Users/biswananda/Downloads/JUnitParams-1.0.4.jar"/>
+	<classpathentry kind="lib" path="/Users/biswananda/Downloads/mysql-connector-java-5.1.47.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

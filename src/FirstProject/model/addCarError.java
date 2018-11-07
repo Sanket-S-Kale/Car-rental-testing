@@ -46,16 +46,6 @@ public class addCarError {
 	
 	
 	public Boolean setErrorMsg(String carname, String capacity,String weekdayrate, String weekendrate, String weeklyrate, String gpsrate,String onstarrate,String siriusxmrate) throws ServletException, IOException{
-//		  response.setContentType("text/html");
-//		  PrintWriter out = response.getWriter();
-//		  String carname = request.getParameter("carname");
-//		  String capacity = request.getParameter("capacity");
-//		  String weekdayrate = request.getParameter("weekdayrate");
-//		  String weekendrate = request.getParameter("weekendrate");
-//		  String weeklyrate = request.getParameter("weeklyrate");
-//		  String gpsrate = request.getParameter("gpsrate");
-//		  String onstarrate = request.getParameter("onstarrate");
-//		  String siriusxmrate = request.getParameter("siriusxmrate");
 		  
 		  addCarError ae = new addCarError();
 		  boolean hasErrors = false;
