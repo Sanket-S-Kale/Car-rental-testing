@@ -32,7 +32,7 @@
 						<td>
 							<input type="text" class="form-control" name="username">
 						</td>
-						<td class="text-danger">${errorList.usernameError }</td>>
+						<td class="text-danger">${errorList.usernameError }</td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -41,7 +41,7 @@
 						<td>
 							<input type="text" class="form-control" name="password">
 						</td>
-						<td class="text-danger">${errorList.passwordError }</td>>
+						<td class="text-danger">${errorList.passwordError }</td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -50,7 +50,7 @@
 						<td>
 							<input type="text" class="form-control" name="utaid">
 						</td>
-						<td class="text-danger">${errorList.uidError }</td>>
+						<td class="text-danger">${errorList.uidError }</td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -59,7 +59,7 @@
 						<td>
 							<input type="text" class="form-control" name="firstname">
 						</td>
-						<td class="text-danger">${errorList.fnameError }</td>>
+						<td class="text-danger">${errorList.fnameError }</td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -68,7 +68,7 @@
 						<td>
 							<input type="text" class="form-control" name="lastname">
 						</td>
-						<td class="text-danger">${errorList.lnameError }</td>>
+						<td class="text-danger">${errorList.lnameError }</td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -90,7 +90,7 @@
 						<td>
 							<input class="form-control" type="text" name="dob">
 						</td>
-						<td class="text-danger">${errorList.dobError }</td>>
+						<td class="text-danger">${errorList.dobError }</td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -99,7 +99,7 @@
 						<td>
 							<input type="text" class="form-control" name="phonenumber">
 						</td>
-						<td class="text-danger">${errorList.phoneError }</td>>
+						<td class="text-danger">${errorList.phoneError }</td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -108,7 +108,7 @@
 						<td>
 							<input type="text" class="form-control" name="email">
 						</td>
-						<td class="text-danger">${errorList.emailError }</td>>
+						<td class="text-danger">${errorList.emailError }</td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -117,7 +117,7 @@
 						<td>
 							<input type="text" class="form-control" name="dl">
 						</td>
-						<td class="text-danger">${errorList.dlError }</td>>
+						<td class="text-danger">${errorList.dlError }</td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -129,7 +129,7 @@
 						<td class="text-danger">${errorList.addressError }</td>
 					</tr>	
 				</table>
-				<input style="margin-left:auto!important; margin-right:auto!important; margin-top:10px;" class="btn" type="submit" value="register" />
+				<input style="margin-left:auto!important; margin-right:auto!important; margin-top:5px;" class="btn btn-sm" type="submit" value="register" />
 			</fieldset>
 		</form>
 		<form action="index.jsp" method="post">
