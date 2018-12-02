@@ -39,93 +39,10 @@ public class AddcarServlet extends HttpServlet {
   String siriusxmrate = request.getParameter("siriusxmrate");
   
   addCarError ae = new addCarError();
-  boolean hasErrors = false;
+  ae = ae.setErrorMsg(carname, capacity, weekdayrate, weekendrate, weeklyrate, gpsrate, onstarrate, siriusxmrate);
   
-  ///////////////////               Validate given inputs                  ////////////////////
-  Pattern pattern = Pattern.compile("[A-Za-z0-9_]+");
-  Pattern hasUppercase = Pattern.compile("[A-Z]");
-  Pattern hasLowercase = Pattern.compile("[a-z]");
-  Pattern hasNumber = Pattern.compile("\\d");
-  Pattern hasSpecialChar = Pattern.compile("[$&+,:;=?@#|'<>.^*()%!-]");
-  Pattern dofb = Pattern.compile("^(0?[1-9]|1[0-2])/(0?[1-9]|1[0-9]|2[0-9]|3[01])/(1[0-9][0-9][0-9]|2[0-9][0-9][0-9])$");
-  Pattern mail = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"+"[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
-  Pattern dollar = Pattern.compile("^[0-9]+\\.[0-9][0-9]");
-  int capacityv = Integer.parseInt(capacity);
-
-  ///////////////////               Validation for isRequired:              ////////////////////
   
-  if (carname.isEmpty() || capacity.isEmpty() || weekdayrate.isEmpty() || weekendrate.isEmpty() || gpsrate.isEmpty() || onstarrate.isEmpty()|| siriusxmrate.isEmpty()) {
-   RequestDispatcher rd = request.getRequestDispatcher("addcar.jsp");
-   out.println("<font color=red>Please fill all the fields</font>");
-   rd.include(request, response);
-  } 
-  
-  //////////////////               Validation for Car Name:                /////////////////////
-  
-  else if (hasSpecialChar.matcher(carname).find()) {
-	  ae.carnameError = "Must be alphanumeric Only. ";
-	  hasErrors = true;
-  }
-  // Since car_id is PK in database, Car Name need not be unique //
-  
-  /////////////////               Validation for Capacity                  /////////////////////
-  
-  else if (!capacity.matches("[0-9]+")){
-	  ae.capacityError = "Must Contain Number Only";
-	  hasErrors = true;
-	 
-  }
-  
-  	else if (capacityv > 25){
-  	ae.capacityError = "Maximum Capacity is 25";
-  	hasErrors = true;
-	 
- }
-  
-  /////////////////              Validation for Weekday Rate:          //////////////////////////
-  
-  else if (!dollar.matcher(weekdayrate).find()) {
-	  ae.weekdayError = "Use Valid Currency Format";
-	  hasErrors = true;
-	 
-  }
-  
-  /////////////////              Validation for Weekend Rate:          ///////////////////////////
-  
-  else if (!dollar.matcher(weekendrate).find()) {
-	  ae.weekendError = "Use Valid Currency Format";
-	  hasErrors = true;
-  }
-  
- //////////////////             Validation for Weekly Rate:             /////////////////////////
-  
-  else if (!dollar.matcher(weeklyrate).find()) {
-	  ae.weeklyError = "Use Valid Currency Format";
-	  hasErrors = true;
-  }
-  
-  /////////////////             Validation for GPS Rate:               ///////////////////////////
-  
-  else if (!dollar.matcher(gpsrate).find()) {
-	  ae.gpsError = "Use Valid Currency Format";
-	  hasErrors = true;
-  }
-  
-  ////////////////              Validation for OnStar Rate:             ////////////////////////
-  
-  else if (!dollar.matcher(onstarrate).find()) {
-	  ae.onstarError = "Use Valid Currency Format";
-	  hasErrors = true;
-  }
-  
-  ////////////////             Validation for SiriusXM Rate:              ///////////////////////
-  
-  else if (!dollar.matcher(siriusxmrate).find()) {
-	  ae.siriusxmError = "Use Valid Currency Format";
-	  hasErrors = true;
-  }
-  
-  if(hasErrors == true){
+  if(ae.hasErrors == true){
 	  RequestDispatcher rd20 = request.getRequestDispatcher("addcar.jsp");
 	  request.setAttribute("errorList",ae);
 	   rd20.forward(request, response);

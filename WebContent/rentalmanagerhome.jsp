@@ -32,9 +32,12 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="SearchRental.jsp">Search Rental</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="EditProfileServlet">Update Profile</a>
-            </li>
+            <form name="submitForm" method="POST" action="EditProfileServlet">
+			    <input type="hidden" name="param1" value="param1Value">
+			    <li class="nav-item">
+			              <a class="nav-link js-scroll-trigger" method="post" href="javascript:document.submitForm.submit()">Update Profile</a>
+			            </li>
+			</form>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="addcar.jsp">Add Car</a>
             </li>

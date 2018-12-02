@@ -35,20 +35,37 @@ import java.util.regex.Pattern;
 
 
 public class addCarError {
-	public String capacityError;
-	public String weekdayError;
-	public String weekendError;
-	public String weeklyError;
-	public String gpsError;
-	public String onstarError;
-	public String siriusxmError;
-	public String carnameError;
+	public String capacityError = "";
+	public String weekdayError = "";
+	public String weekendError = "";
+	public String weeklyError = "";
+	public String gpsError = "";
+	public String onstarError = "";
+	public String siriusxmError = "";
+	public String carnameError = "";
+	public boolean hasErrors = false;
+	public boolean isHasErrors() {
+		return hasErrors;
+	}
+
+	public void setHasErrors(boolean hasErrors) {
+		this.hasErrors = hasErrors;
+	}
+
+	public String getGeneralError() {
+		return generalError;
+	}
+
+	public void setGeneralError(String generalError) {
+		this.generalError = generalError;
+	}
+	public String generalError = "";
 	
 	
-	public Boolean setErrorMsg(String carname, String capacity,String weekdayrate, String weekendrate, String weeklyrate, String gpsrate,String onstarrate,String siriusxmrate) throws ServletException, IOException{
+	public addCarError setErrorMsg(String carname, String capacity,String weekdayrate, String weekendrate, String weeklyrate, String gpsrate,String onstarrate,String siriusxmrate) throws ServletException, IOException{
 		  
 		  addCarError ae = new addCarError();
-		  boolean hasErrors = false;
+		  ae.hasErrors = false;
 		  
 		  Pattern pattern = Pattern.compile("[A-Za-z0-9_]+");
 		  Pattern hasUppercase = Pattern.compile("[A-Z]");
@@ -64,16 +81,17 @@ public class addCarError {
 //			   RequestDispatcher rd = request.getRequestDispatcher("addcar.jsp");
 //			   out.println("<font color=red>Please fill all the fields</font>");
 //			   rd.include(request, response);
-			 hasErrors = true;
-			 return hasErrors;
+			 ae.generalError = "All fileds are mandatory";
+			 ae.hasErrors = true;
+			 return ae;
 			  } 
 			  
 			  //////////////////               Validation for Car Name:                /////////////////////
 			  
 			  else if (hasSpecialChar.matcher(carname).find()) {
 				  ae.carnameError = "Must be alphanumeric Only. ";
-				  hasErrors = true;
-				  return hasErrors;
+				  ae.hasErrors = true;
+				  return ae;
 			  }
 			  // Since car_id is PK in database, Car Name need not be unique //
 			  
@@ -81,8 +99,8 @@ public class addCarError {
 			  
 			  else if (!capacity.matches("[0-9]+")){
 				  ae.capacityError = "Must Contain Number Only";
-				  hasErrors = true;
-				  return hasErrors;
+				  ae.hasErrors = true;
+				  return ae;
 				 
 			  }
 			 
@@ -91,8 +109,8 @@ public class addCarError {
 			  
 			  	else if (Integer.parseInt(capacity) > 25){
 			  	ae.capacityError = "Maximum Capacity is 25";
-			  	hasErrors = true;
-			  	 return hasErrors;
+			  	ae.hasErrors = true;
+			  	 return ae;
 				 
 			 }
 			  
@@ -100,8 +118,8 @@ public class addCarError {
 			  
 			  else if (!dollar.matcher(weekdayrate).find()) {
 				  ae.weekdayError = "Use Valid Currency Format";
-				  hasErrors = true;
-				  return hasErrors;
+				  ae.hasErrors = true;
+				  return ae;
 				 
 			  }
 			  
@@ -109,40 +127,40 @@ public class addCarError {
 			  
 			  else if (!dollar.matcher(weekendrate).find()) {
 				  ae.weekendError = "Use Valid Currency Format";
-				  hasErrors = true;
-				  return hasErrors;
+				  ae.hasErrors = true;
+				  return ae;
 			  }
 			  
 			 //////////////////             Validation for Weekly Rate:             /////////////////////////
 			  
 			  else if (!dollar.matcher(weeklyrate).find()) {
 				  ae.weeklyError = "Use Valid Currency Format";
-				  hasErrors = true;
-				  return hasErrors;
+				  ae.hasErrors = true;
+				  return ae;
 			  }
 			  
 			  /////////////////             Validation for GPS Rate:               ///////////////////////////
 			  
 			  else if (!dollar.matcher(gpsrate).find()) {
 				  ae.gpsError = "Use Valid Currency Format";
-				  hasErrors = true;
-				  return hasErrors;
+				  ae.hasErrors = true;
+				  return ae;
 			  }
 			  
 			  ////////////////              Validation for OnStar Rate:             ////////////////////////
 			  
 			  else if (!dollar.matcher(onstarrate).find()) {
 				  ae.onstarError = "Use Valid Currency Format";
-				  hasErrors = true;
-				  return hasErrors;
+				  ae.hasErrors = true;
+				  return ae;
 			  }
 			  
 			  ////////////////             Validation for SiriusXM Rate:              ///////////////////////
 			  
 			  else if (!dollar.matcher(siriusxmrate).find()) {
 				  ae.siriusxmError = "Use Valid Currency Format";
-				  hasErrors = true;
-				  return hasErrors;
+				  ae.hasErrors = true;
+				  return ae;
 			  }
 			  
 //			  if(hasErrors == true){
@@ -152,8 +170,8 @@ public class addCarError {
 //			  }
 //			  
 			  else {
-				  hasErrors = false;
-				  return hasErrors;
+				  ae.hasErrors = false;
+				  return ae;
 		  }
 	
 		

@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import Car_Rental_Util.sqlconnector;
 import FirstProject.model.LoginDAO;
+import FirstProject.model.RegisterErrors;
+import FirstProject.model.UserDetails;
 
 public class UpdateProfileServlet extends HttpServlet {
 	 private static final long serialVersionUID = 1L;
@@ -39,12 +41,13 @@ public class UpdateProfileServlet extends HttpServlet {
   PreparedStatement qry = null;
   ResultSet qrs = null;
   
-
+  UserDetails ud = new UserDetails();
+  RegisterErrors re = ud.setErrorMsg(userName, password, utaid, firstname, lastname, dob,  phonenumber, email, dl, address);
   // validate given input
-  if (userName.isEmpty() || password.isEmpty() || utaid.isEmpty() || dob.isEmpty() || phonenumber.isEmpty()|| email.isEmpty()|| dl.isEmpty()|| address.isEmpty()) {
-   RequestDispatcher rd = request.getRequestDispatcher("EditProfile.jsp");
-   out.println("<font color=red>Please fill all the fields</font>");
-   rd.include(request, response);
+  if (re.hasErrors) {
+   RequestDispatcher rd = request.getRequestDispatcher("/EditProfileServlet");
+   request.setAttribute("errorList",re);
+   rd.forward(request, response);
   } else {
 	  Connection conn = null;
       PreparedStatement pst = null;
@@ -96,7 +99,7 @@ public class UpdateProfileServlet extends HttpServlet {
 	            RequestDispatcher rd=request.getRequestDispatcher("rentalmanagerhome.jsp");  
 	            rd.forward(request,response);  
 	        	}
-	        	else if(temp.equals("User"))
+	        	else
 	        	{
 	            RequestDispatcher rd=request.getRequestDispatcher("userhome.jsp");  
 	            rd.forward(request,response);  

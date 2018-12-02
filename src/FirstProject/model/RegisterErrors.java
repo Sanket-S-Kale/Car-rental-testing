@@ -1,6 +1,22 @@
 package FirstProject.model;
 
 public class RegisterErrors {
+
+	public String usernameError;
+	public String passwordError;
+	public String uidError;
+	public String fnameError;
+	public String lnameError;
+	public String roleError;
+	public String dobError;
+	public String phoneError;
+	public String emailError;
+	public String dlError;
+	public String addressError;
+	public boolean hasErrors;
+	public String generalError;
+	
+	
 	public String getUsernameError() {
 		return usernameError;
 	}
@@ -67,15 +83,17 @@ public class RegisterErrors {
 	public void setAddressError(String addressError) {
 		this.addressError = addressError;
 	}
-	public String usernameError;
-	public String passwordError;
-	public String uidError;
-	public String fnameError;
-	public String lnameError;
-	public String roleError;
-	public String dobError;
-	public String phoneError;
-	public String emailError;
-	public String dlError;
-	public String addressError;
+	
+	public boolean isHasErrors() {
+		return hasErrors;
+	}
+	public void setHasErrors(boolean hasErrors) {
+		this.hasErrors = hasErrors;
+	}
+	public String getGeneralError() {
+		return generalError;
+	}
+	public void setGeneralError(String generalError) {
+		this.generalError = generalError;
+	}
 }

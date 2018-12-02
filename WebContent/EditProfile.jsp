@@ -25,6 +25,8 @@
 		<form action="UpdateProfileServlet" method="post">
 		<fieldset style="margin-left: auto!important; margin-right:auto!important; width: 500px">
             <legend class="text-white-50"> Edit Profile Details </legend>
+            <legend class="text-danger"> ${errorList.generalError} </legend>
+            
             
 			<table>
 			<c:forEach var="var1" items='${requestScope["queryResults"]}'>
@@ -35,6 +37,7 @@
 						<td>
 							<input type="text" class="form-control" name="username" value="${var1.user_name}">
 						</td>
+						<td class="text-danger"> ${errorList.usernameError} </td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -43,6 +46,7 @@
 						<td>
 							<input type="text" class="form-control" name="password" value="${var1.usr_password}">
 						</td>
+						<td class="text-danger"> ${errorList.passwordError} </td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -51,6 +55,7 @@
 						<td>
 							<input type="text" class="form-control" name="utaid" value="${var1.uta_id}">
 						</td>
+						<td class="text-danger"> ${errorList.uidError} </td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -59,6 +64,7 @@
 						<td>
 							<input type="text" class="form-control" name="firstname" value="${var1.first_name}">
 						</td>
+						<td class="text-danger"> ${errorList.fnameError} </td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -67,6 +73,7 @@
 						<td>
 							<input type="text" class="form-control" name="lastname" value="${var1.last_name}">
 						</td>
+						<td class="text-danger"> ${errorList.lnameError} </td>
 					</tr>
 					
 					<tr>
@@ -76,6 +83,7 @@
 						<td>
 							<input class="form-control" type="text" name="dob" value="${var1.date_of_birth}">
 						</td>
+						<td class="text-danger"> ${errorList.dobError} </td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -84,6 +92,7 @@
 						<td>
 							<input type="text" class="form-control" name="phonenumber" value="${var1.phone_number}">
 						</td>
+						<td class="text-danger"> ${errorList.phoneError} </td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -92,6 +101,7 @@
 						<td>
 							<input type="text" class="form-control" name="email" value="${var1.email}">
 						</td>
+						<td class="text-danger"> ${errorList.emailError} </td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -100,6 +110,7 @@
 						<td>
 							<input type="text" class="form-control" name="dl" value="${var1.driving_license_number}">
 						</td>
+						<td class="text-danger"> ${errorList.dlError} </td>
 					</tr>
 					<tr>
 						<td class="text-white-50">
@@ -108,6 +119,7 @@
 						<td>
 							<input type="text" class="form-control" name="address" value="${var1.address}">
 						</td>
+						<td class="text-danger"> ${errorList.addressError} </td>
 					</tr>
 					</c:forEach>	
 				</table>

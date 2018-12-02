@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet{
             RequestDispatcher rd=request.getRequestDispatcher("rentalmanagerhome.jsp");  
             rd.forward(request,response);  
         	}
-        	else if(parameter(temp).equals("User"))
+        	else 
         	{
             RequestDispatcher rd=request.getRequestDispatcher("userhome.jsp");  
             rd.forward(request,response);  

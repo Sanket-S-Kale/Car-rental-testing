@@ -27,10 +27,10 @@ public class AddCarTest {
 	
 	@Test
 	@FileParameters("src/csv/cars.csv")
-	public void test(String carname, String capacity,String weekdayrate, String weekendrate, String weeklyrate, String gpsrate,String onstarrate,String siriusxmrate,Boolean error,String Errmsg) throws ServletException, IOException {
+	public void test(String carname, String capacity,String weekdayrate, String weekendrate, String weeklyrate, String gpsrate,String onstarrate,String siriusxmrate,Boolean error) throws ServletException, IOException {
 		
-		Boolean result=cartest.setErrorMsg(carname, capacity, weekdayrate, weekendrate, weeklyrate, gpsrate, onstarrate, siriusxmrate);
-		assertEquals(error,result);
+		addCarError result=cartest.setErrorMsg(carname, capacity, weekdayrate, weekendrate, weeklyrate, gpsrate, onstarrate, siriusxmrate);
+		assertEquals(error,result.hasErrors);
 		
 	}
 

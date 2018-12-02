@@ -83,7 +83,7 @@ public class SearchAvailableCarsServlet extends HttpServlet {
     	  obj.setDropoffdate(dropoffdate);
     	  obj.setPickuptime(pickuptime);
     	  obj.setDropofftime(dropofftime);
-       	  obj.setAmount(payment_amount(rs.getDouble(4),rs.getDouble(6),rs.getDouble(7),rs.getDouble(8),rs.getDouble(9),pickupdate,dropoffdate,gps1,onstar1,siriusxm1,clubmember1));
+       	  obj.setAmount(AvailableCars.payment_amount(rs.getDouble(4),rs.getDouble(6),rs.getDouble(7),rs.getDouble(8),rs.getDouble(9),pickupdate,dropoffdate,gps1,onstar1,siriusxm1,clubmember1));
     	  mylist.add(obj);   	
     	  System.out.println(rs.getString(1));
       }
@@ -120,48 +120,5 @@ public class SearchAvailableCarsServlet extends HttpServlet {
  
 
  }
- double payment_amount(double  Weekday_rate,double  Weekly_rate,double  gps_rate,double onstar_rate,double  sirusxm_rate,String pickupdate,String dropoffdate, String gps,String onstar, String sirusxm, String clubmember ) throws ParseException
- {
- 	 double amount = 0;
- 	 SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy/MM/dd");
- 	 java.util.Date pickup_date = sdf1.parse(pickupdate);
- 	 java.util.Date dropoff_date = sdf1.parse(dropoffdate);
- 	 long diff = dropoff_date.getTime()-pickup_date.getTime();
- 	 int days=(int)(diff / (1000 * 60 * 60 * 24));
- 	 System.out.println(gps);
- 	 if(days/7==0)
- 	 {
- 		 amount=(days%7)*Weekday_rate;
- 	 }
- 	 if(days/7!=0)
- 	 {
- 		int weeks=days/7;
- 		 amount=(weeks*Weekly_rate) + (days - (weeks*7))*Weekday_rate;
- 	 }
- 	 
- 	 
- 	 
- 	 if(gps!=null && gps.equals("1"))
- 	 {
- 		 amount=amount+days*gps_rate;
- 	 }
- 	 if(onstar!=null && onstar.equals("2"))
- 	 {
- 		 amount=amount+days*onstar_rate; 
- 	 }
- 	 if(sirusxm!=null&&sirusxm.equals("3"))
- 	 {
- 		 amount=amount+days*sirusxm_rate;
- 	 }
- 	 if(clubmember!=null&&clubmember.equals("4"))
- 	 {
- 		 amount=amount- (0.01*amount);
- 	 }
- 	 
- 	 amount= amount+ (0.0825*amount);
 
- 	amount =Double.parseDouble(new DecimalFormat("##.##").format(amount));
- 	 return amount;
- 	   
- }
 }

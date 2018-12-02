@@ -133,7 +133,7 @@ public class AvailableCars {
 		this.sirusXM_rate = sirusXM_rate;
 	}
 	
-	public double payment_amount(double  Weekday_rate,double  Weekly_rate,double  gps_rate,double onstar_rate,double  sirusxm_rate,String pickupdate,String dropoffdate, String gps,String onstar, String sirusxm, String clubmember ) throws ParseException
+	public static double payment_amount(double  Weekday_rate,double  Weekly_rate,double  gps_rate,double onstar_rate,double  sirusxm_rate,String pickupdate,String dropoffdate, String gps,String onstar, String sirusxm, String clubmember ) throws ParseException
 	 {
 	 	 double amount = 0;
 	 	 SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy/MM/dd");
@@ -142,7 +142,7 @@ public class AvailableCars {
 	 	 long diff = dropoff_date.getTime()-pickup_date.getTime();
 	 	 int days=(int)(diff / (1000 * 60 * 60 * 24));
 	 	 System.out.println(gps);
-	 	 if(days/7==0)
+	 	 if(Math.abs((days/7))==0)
 	 	 {
 	 		 amount=(days%7)*Weekday_rate;
 	 	 }
